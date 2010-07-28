@@ -1,4 +1,4 @@
-(setq load-path (cons "~/.lib/emacs/site-lisp" load-path))
+(setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 
 (require 'blank-mode)
 (require 'yaml-mode)
