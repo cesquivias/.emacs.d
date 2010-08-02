@@ -85,4 +85,6 @@
 (tool-bar-mode -1)
 (set-scroll-bar-mode 'right)
 
-(add-to-list 'default-frame-alist '(font . "-unknown-Liberation Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
+
+(when (eq (window-system) 'x)
+  (add-to-list 'default-frame-alist '(font . "-unknown-Liberation Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")))
