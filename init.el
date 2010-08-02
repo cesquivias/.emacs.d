@@ -1,3 +1,7 @@
+;; ELPA
+(when (load (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 
 (require 'blank-mode)
