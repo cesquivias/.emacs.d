@@ -10,16 +10,17 @@
 (require 'django-html-mode)
 (require 'uniquify)
 (require 'rst)
-(require 'color-theme)
 
+(require 'color-theme)
+(color-theme-initialize)
 (color-theme-ld-dark)
+
 (iswitchb-mode t)
 (prefer-coding-system 'utf-8-unix)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (global-font-lock-mode t)
-
 
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
 (setq transient-mark-mode t) ;; default in emacs23
