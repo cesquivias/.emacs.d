@@ -3,6 +3,7 @@
   (package-initialize))
 
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path))
+(setq load-path (cons "~/.emacs.d/local-lisp" load-path))
 
 (require 'blank-mode)
 (require 'yaml-mode)
