@@ -5,15 +5,20 @@
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 (setq load-path (cons "~/.emacs.d/local-lisp" load-path))
 
-(require 'blank-mode)
-(require 'yaml-mode)
-(require 'django-html-mode)
+;; built-in
 (require 'uniquify)
 (require 'rst)
 
+;; platform dependent
+(require 'paredit)
+(require 'yaml-mode)
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-ld-dark)
+
+;; site-lisp
+(require 'blank-mode)
+(require 'django-html-mode)
 
 (iswitchb-mode t)
 (prefer-coding-system 'utf-8-unix)
