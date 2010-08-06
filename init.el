@@ -88,10 +88,4 @@
 (set-face-background 'rst-level-5-face "#000")
 (set-face-background 'rst-level-6-face "#000")
 
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(set-scroll-bar-mode 'right)
-
-
-(when (eq (window-system) 'x)
-  (add-to-list 'default-frame-alist '(font . "-unknown-Liberation Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")))
+(load "init/gui.el")
