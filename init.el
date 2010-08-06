@@ -32,9 +32,11 @@
 ;; platform dependent
 (require-or-install 'paredit 'paredit)
 (require-or-install 'yaml-mode 'yaml-mode)
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-ld-dark)
+(if (require 'color-theme nil t)
+    (progn
+      (color-theme-initialize)
+      (color-theme-ld-dark))
+  (message "color-theme not installed"))
 
 ;; site-lisp
 (require 'blank-mode)
