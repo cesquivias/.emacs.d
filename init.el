@@ -16,6 +16,12 @@
 	      (kill-buffer (current-buffer)))
 	  (setq user-init-file ifile)))))
 
+(defun require-or-install (library-name package-name)
+  (unless (require library-name nil t)
+    (message (format "%s was not found. Installing %s from ELPA"
+		     library-name package-name))
+    (package-install package-name)))
+
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 (setq load-path (cons "~/.emacs.d/local-lisp" load-path))
 
@@ -24,8 +30,8 @@
 (require 'rst)
 
 ;; platform dependent
-(require 'paredit)
-(require 'yaml-mode)
+(require-or-install 'paredit 'paredit)
+(require-or-install 'yaml-mode 'yaml-mode)
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-ld-dark)
