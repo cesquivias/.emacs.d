@@ -1,26 +1,3 @@
-;; ELPA
-(let ((package-el  "~/.emacs.d/elpa/package.el"))
-  (if (file-exists-p package-el)
-      (when (load (expand-file-name package-el))
-	(package-initialize))
-      (let ((buffer (url-retrieve-synchronously
-		     "http://tromey.com/elpa/package-install.el"))
-	    (ifile user-init-file))
-	(setq user-init-file nil)
-	(unwind-protect
-	    (save-excursion
-	      (set-buffer buffer)
-	      (goto-char (point-min))
-	      (re-search-forward "^$" nil 'move)
-	      (eval-region (point) (point-max))
-	      (kill-buffer (current-buffer)))
-	  (setq user-init-file ifile)))))
-
-(defun require-or-install (library-name package-name)
-  (unless (require library-name nil t)
-    (message (format "%s was not found. Installing %s from ELPA"
-		     library-name package-name))
-    (package-install package-name)))
 
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 (setq load-path (cons "~/.emacs.d/local-lisp" load-path))
@@ -28,6 +5,11 @@
 ;; built-in
 (require 'uniquify)
 (require 'rst)
+
+;; site-lisp
+(require 'blank-mode)
+(require 'django-html-mode)
+(load "init/elpa.el")
 
 ;; platform dependent
 (require-or-install 'paredit 'paredit)
@@ -37,10 +19,6 @@
       (color-theme-initialize)
       (color-theme-ld-dark))
   (message "color-theme not installed"))
-
-;; site-lisp
-(require 'blank-mode)
-(require 'django-html-mode)
 
 (iswitchb-mode t)
 (prefer-coding-system 'utf-8-unix)
