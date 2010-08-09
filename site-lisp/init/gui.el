@@ -15,7 +15,9 @@
   (add-to-list 'initial-frame-alist (cons 'height (max-frame-rows)))
   (add-hook 'after-make-frame-functions
             (lambda (frame)
-              (set-frame-height frame (max-frame-rows frame)))))
+              (let ((f (framep frame)))
+                (when (or (eq f 'x) (eq f 'w32) (eq f 'ns))
+                  (set-frame-height frame (max-frame-rows frame)))))))
 
 (when (eq (window-system) 'x)
   (add-to-list 'default-frame-alist
