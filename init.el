@@ -16,7 +16,8 @@
 (require-or-install 'yaml-mode 'yaml-mode)
 (if (require 'color-theme nil t)
     (progn
-      (color-theme-initialize)
+      (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb pacakge
+          (color-theme-initialize))
       (color-theme-ld-dark))
   (message "color-theme not installed"))
 
