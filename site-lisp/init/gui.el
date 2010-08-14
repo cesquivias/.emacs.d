@@ -3,10 +3,12 @@
 (set-scroll-bar-mode 'right)
 
 ;; Adjust GUI window
-(add-to-list 'default-frame-alist '(top . 23))
+(let ((x? (eq 'x (window-system))))
+  (add-to-list 'default-frame-alist `(top . ,(if x? 23 0)))
+  (add-to-list 'initial-frame-alist `(left . ,(if x? 4 0)))
+)
 (add-to-list 'default-frame-alist '(width . 80))
 
-(add-to-list 'initial-frame-alist '(left . 4))
 (defun max-frame-rows (&optional frame)
   (/ (- (x-display-pixel-height) 70)
      (/ (frame-pixel-height frame) (frame-height frame))))
