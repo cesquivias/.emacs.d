@@ -15,8 +15,9 @@
 	      (kill-buffer (current-buffer)))
 	  (setq user-init-file ifile)))))
 
-(defun require-or-install (library-name package-name)
+(defun require-or-install (library-name &optional package-name)
   (unless (require library-name nil t)
-    (message (format "%s was not found. Installing %s from ELPA"
-		     library-name package-name))
-    (package-install package-name)))
+    (let ((package (if package-name package-name library-name)))
+      (message (format "%s was not found. Installing %s from ELPA"
+                       library-name package))
+      (package-install package))))

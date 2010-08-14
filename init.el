@@ -11,9 +11,9 @@
 (load "init/elpa.el")
 
 ;; platform dependent
-(require-or-install 'blank-mode 'blank-mode)
-(require-or-install 'paredit 'paredit)
-(require-or-install 'yaml-mode 'yaml-mode)
+(require-or-install 'blank-mode)
+(require-or-install 'paredit)
+(require-or-install 'yaml-mode)
 (if (require 'color-theme nil t)
     (progn
       (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb pacakge
