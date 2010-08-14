@@ -7,11 +7,11 @@
 (require 'rst)
 
 ;; site-lisp
-(require 'blank-mode)
 (require 'django-html-mode)
 (load "init/elpa.el")
 
 ;; platform dependent
+(require-or-install 'blank-mode 'blank-mode)
 (require-or-install 'paredit 'paredit)
 (require-or-install 'yaml-mode 'yaml-mode)
 (if (require 'color-theme nil t)
