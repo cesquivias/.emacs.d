@@ -7,6 +7,7 @@
 (require 'rst)
 
 ;; site-lisp
+(require 'dos)
 (require 'blank-mode)
 (require 'django-html-mode)
 (load "init/elpa.el")
@@ -14,6 +15,7 @@
 ;; platform dependent
 (require-or-install 'paredit 'paredit)
 (require-or-install 'yaml-mode 'yaml-mode)
+(require-or-install 'js2-mode 'js2-mode)
 (if (require 'color-theme nil t)
     (progn
       (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb pacakge
@@ -48,6 +50,7 @@
 (setq-default tab-always-indent t)
 (setq-default js2-mirror-mode nil)
 (setq-default even-window-heights nil)
+(setq-default require-final-newline t) ;; All files should end in newline
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use shorter y/n prompt
 (put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut
@@ -76,7 +79,8 @@
 
 (add-hook 'js2-mode-hook
           (lambda ()
-            (setq tab-width 4)))
+            (setq tab-width 4)
+            (local-set-key (kbd "M-;") 'comment-region)))
 
 (add-to-list 'emacs-lisp-mode-hook (lambda ()
                                      (paredit-mode +1)))
