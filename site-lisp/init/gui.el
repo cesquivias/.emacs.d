@@ -19,7 +19,11 @@
             (lambda (frame)
               (let ((f (framep frame)))
                 (when (or (eq f 'x) (eq f 'w32) (eq f 'ns))
-                  (set-frame-height frame (max-frame-rows frame)))))))
+                  (set-frame-height frame (max-frame-rows frame))))))
+  (global-set-key (kbd "C-+")
+                  (lambda ()
+                    (interactive)
+                    (set-frame-height (selected-frame) (max-frame-rows)))))
 
 (when (eq (window-system) 'x)
   (add-to-list 'default-frame-alist
