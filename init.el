@@ -1,4 +1,3 @@
-
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 (setq load-path (cons "~/.emacs.d/local-lisp" load-path))
 
@@ -83,8 +82,12 @@
             (setq tab-width 4)
             (local-set-key (kbd "M-;") 'comment-region)))
 
+(add-hook 'clojure-mode-hook (lambda ()
+                               (paredit-mode +1)))
+
 (add-to-list 'emacs-lisp-mode-hook (lambda ()
                                      (paredit-mode +1)))
+
 
 ;;; RST fixing
 (set-face-background 'rst-level-1-face "#000")
