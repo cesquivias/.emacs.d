@@ -14,7 +14,7 @@
 (require-or-install 'blank-mode)
 (require-or-install 'paredit)
 (require-or-install 'yaml-mode)
-(require-or-install 'js2-mode)
+;; (require-or-install 'js2-mode) ;; js2-mode is screwing up
 (require-or-install 'swank-clojure) ;; Installs clojure, slime, slime-repl
 (if (require 'color-theme nil t)
     (progn

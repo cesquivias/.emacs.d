@@ -1,3 +1,5 @@
+(setq packages-loaded nil)
+
 (let ((package-el  "~/.emacs.d/elpa/package.el"))
   (if (file-exists-p package-el)
       (when (load (expand-file-name package-el))
@@ -18,6 +20,10 @@
 (defun require-or-install (library-name &optional package-name)
   (unless (require library-name nil t)
     (let ((package (if package-name package-name library-name)))
+      (when (not packages-loaded)
+	(message "Loading ELPA information..")
+	(package-refresh-contents)
+	(setq packages-loaded t))
       (message (format "%s was not found. Installing %s from ELPA"
                        library-name package))
       (package-install package))))
