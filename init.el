@@ -91,6 +91,8 @@
 (add-to-list 'emacs-lisp-mode-hook (lambda ()
                                      (paredit-mode +1)))
 
+;;; New Keyboard Shortcuts
+(global-set-key (kbd "M-C-;") 'uncomment-region)
 
 ;;; RST fixing
 (set-face-background 'rst-level-1-face "#000")
