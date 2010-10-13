@@ -31,6 +31,9 @@
 (global-font-lock-mode t)
 
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
+;; Don't litter directories
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
+(setq backup-by-copying t)
 (setq transient-mark-mode t) ;; default in emacs23
 (setq column-number-mode t) ;; show colums next to line numbers
 (setq read-file-name-completion-ignore-case t) ;; filenames are case insensitive
