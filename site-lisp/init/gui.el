@@ -1,4 +1,6 @@
-(x-initialize-window-system) ;; In case we're starting as daemon
+(if (functionp 'x-initialize-window-system)
+  (x-initialize-window-system) ;; In case we're starting as daemon
+  (setq x-initialized nil)) ;; No x functions, x never initialized
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
