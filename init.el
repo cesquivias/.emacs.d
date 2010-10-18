@@ -30,6 +30,7 @@
 (set-keyboard-coding-system 'utf-8)
 (global-font-lock-mode t)
 
+(setq default-directory "~/") ;; Always start in home directory
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
 ;; Don't litter directories
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
@@ -56,7 +57,7 @@
 (setq-default require-final-newline t) ;; All files should end in newline
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use shorter y/n prompt
-(put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut
+(put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut in dired
 
 ;; Clipboard compatbility
 (setq x-select-enable-clipboard t)
