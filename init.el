@@ -18,7 +18,7 @@
 (require-or-install 'swank-clojure) ;; Installs clojure, slime, slime-repl
 (if (require 'color-theme nil t)
     (progn
-      (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb pacakge
+      (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb package
           (color-theme-initialize))
       (color-theme-ld-dark))
   (message "color-theme not installed"))
@@ -39,7 +39,7 @@
 (setq column-number-mode t) ;; show colums next to line numbers
 (setq read-file-name-completion-ignore-case t) ;; filenames are case insensitive
 (setq read-buffer-completion-ignore-case t) ;; buffer names are case insensitive
-(setq confirm-kill-emacs 'yes-or-no-p) ;; confirm kill-emacs
+(setq confirm-kill-emacs 'yes-or-no-p) ;; to prevent those accidental exits
 (setq inhibit-splash-screen t) ;; useless
 (setq uniquify-buffer-name-style 'reverse) ;; filename/parent
 (setq line-move-visual nil) ;; Move logical--not visual, word-wrapped--lines
