@@ -59,7 +59,7 @@
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use shorter y/n prompt
 (put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut in dired
 
-;; Clipboard compatbility
+;; Clipboard compatibility
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
@@ -91,6 +91,11 @@
 
 (add-to-list 'emacs-lisp-mode-hook (lambda ()
                                      (paredit-mode +1)))
+
+(add-to-list 'nxml-mode-hook
+             (lambda ()
+               ;; sgml-mode made this shortcut second hand
+               (local-set-key (kbd "C-c /") 'nxml-finish-element)))
 
 ;;; New Keyboard Shortcuts
 (global-set-key (kbd "M-C-;") 'uncomment-region)
