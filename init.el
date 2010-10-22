@@ -92,7 +92,7 @@
 (add-to-list 'emacs-lisp-mode-hook (lambda ()
                                      (paredit-mode +1)))
 
-(add-to-list 'nxml-mode-hook
+(add-hook 'nxml-mode-hook
              (lambda ()
                ;; sgml-mode made this shortcut second hand
                (local-set-key (kbd "C-c /") 'nxml-finish-element)))
