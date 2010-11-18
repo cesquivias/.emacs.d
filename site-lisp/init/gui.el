@@ -26,22 +26,13 @@
 (add-to-list 'default-frame-alist '(width . 80))
 
 (defun max-frame-rows (&optional frame)
-  (/ (- (x-display-pixel-height) 70)
+  (/ (- (x-display-pixel-height frame) 70)
      (/ (frame-pixel-height frame) (frame-height frame))))
 
 (when on-window-system?
-  (let ((rows (max-frame-rows))
-        (x-rows-offset 4))
-    (add-to-list 'initial-frame-alist
-                 (cons 'height (if (eq 'x (window-system))
-                                 (- rows x-rows-offset)
-                                 rows))))
   (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (let* ((f (framep frame))
-                       (rows (max-frame-rows frame)))
-                  (when (or (eq f 'x) (eq f 'w32) (eq f 'ns))
-                    (set-frame-height frame rows)))))
+                (set-frame-height frame (max-frame-rows frame))))
   (global-set-key (kbd "C-+")
                   (lambda ()
                     (interactive)
