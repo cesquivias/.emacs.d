@@ -4,7 +4,8 @@
           nil)) ;; daemon, xwin startup
 
 (if (functionp 'ns-initialize-window-system)
-    (ns-initialize-window-system))
+  (ns-initialize-window-system)
+  (setq ns-initialized nil))
 
 ;; Is emacs running on a window-system? This is tricky 'cause
 ;; window-system returns nil when started from daemon. Have to do some
@@ -32,7 +33,8 @@
 (when on-window-system?
   (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (set-frame-height frame (max-frame-rows frame))))
+                (if (not (eq (framep frame) 't))
+                    (set-frame-height frame (max-frame-rows frame)))))
   (global-set-key (kbd "C-+")
                   (lambda ()
                     (interactive)
