@@ -123,4 +123,7 @@
 (set-face-background 'rst-level-5-face "#000")
 (set-face-background 'rst-level-6-face "#000")
 
+;;; eshell
+(setq eshell-directory-name "~/.emacs.d/eshell/")
+
 (load "init/gui.el")
