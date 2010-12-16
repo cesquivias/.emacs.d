@@ -36,7 +36,7 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq backup-by-copying t)
 (setq transient-mark-mode t) ;; default in emacs23
-(setq column-number-mode t) ;; show colums next to line numbers
+(setq column-number-mode t) ;; show columns next to line numbers
 (setq read-file-name-completion-ignore-case t) ;; filenames are case insensitive
 (setq read-buffer-completion-ignore-case t) ;; buffer names are case insensitive
 (setq confirm-kill-emacs 'yes-or-no-p) ;; to prevent those accidental exits
@@ -44,7 +44,7 @@
 (setq uniquify-buffer-name-style 'reverse) ;; filename/parent
 (setq line-move-visual nil) ;; Move logical--not visual, word-wrapped--lines
 (setq even-window-heights nil) ;; stop commands like C-x 4 b from resizing
-(setq eval-expression-print-length nil) ;; dont' truncate eval prints
+(setq eval-expression-print-length nil) ;; don't truncate eval prints
 (setq indent-tabs-mode nil)
 (setq c-basic-offset 4)
 (setq tab-width 4)
