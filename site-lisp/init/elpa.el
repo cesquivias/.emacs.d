@@ -5,7 +5,7 @@
       (when (load (expand-file-name package-el))
 	(package-initialize))
       (let ((buffer (url-retrieve-synchronously
-		     "http://tromey.com/elpa/package-install.el"))
+                     "http://tromey.com/elpa/package-install.el"))
 	    (ifile user-init-file))
 	(setq user-init-file nil)
 	(unwind-protect
