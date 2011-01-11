@@ -1,1 +1,4 @@
+alias pod popd $1
+alias pud pushd $1
+alias ll ls -l $*
 alias ff find-file $1
