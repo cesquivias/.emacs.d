@@ -46,6 +46,7 @@
 (setq line-move-visual nil) ;; Move logical--not visual, word-wrapped--lines
 (setq even-window-heights nil) ;; stop commands like C-x 4 b from resizing
 (setq eval-expression-print-length nil) ;; don't truncate eval prints
+(setq text-scale-mode-step 1.05) ;; Increase font size 5% each time
 (setq indent-tabs-mode nil)
 (setq c-basic-offset 4)
 (setq tab-width 4)
