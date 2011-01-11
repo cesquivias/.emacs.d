@@ -8,6 +8,7 @@
 ;; site-lisp
 (require 'dos)
 (require 'django-html-mode)
+(require 'android-mode)
 (load "init/elpa.el")
 
 ;; platform dependent
