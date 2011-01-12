@@ -1,17 +1,15 @@
-(setq load-path (cons "~/.emacs.d/site-lisp" load-path))
-(setq load-path (cons "~/.emacs.d/local-lisp" load-path))
-
-;; built-in
+;;;; Built-In
 (require 'uniquify)
 (require 'rst)
 
-;; site-lisp
+;;;; Site-Lisp: checked-in directory with libraries not available on ELPA
+(setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 (require 'dos)
 (require 'django-html-mode)
 (require 'android-mode)
 (load "init/elpa.el")
 
-;; platform dependent
+;;;; Platform Dependent
 (require-or-install 'blank-mode)
 (require-or-install 'paredit)
 (require-or-install 'yaml-mode)
@@ -61,7 +59,7 @@
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use shorter y/n prompt
 (put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut in dired
 
-;; Clipboard compatibility
+;;;; Clipboard Compatibility
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
@@ -114,7 +112,7 @@
                ;; sgml-mode made this shortcut second hand
                (local-set-key (kbd "C-c /") 'nxml-finish-element)))
 
-;;; New Keyboard Shortcuts
+;;;; New Keyboard Shortcuts
 (global-set-key (kbd "M-C-;") 'uncomment-region)
 
 ;;; RST fixing
@@ -125,7 +123,11 @@
 (set-face-background 'rst-level-5-face "#000")
 (set-face-background 'rst-level-6-face "#000")
 
-;;; eshell
+;;;; Eshell
 (setq eshell-directory-name "~/.emacs.d/eshell/")
 
-(load "init/gui.el")
+;;;; Local Lisp: Libraries not checked into version control
+(setq load-path (cons "~/.emacs.d/local-lisp" load-path))
+(let ((local-init "~/.emacs.d/local-lisp/init.el"))
+  (if (file-exists-p local-init)
+      (load local-init)))
