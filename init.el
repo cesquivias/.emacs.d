@@ -10,6 +10,7 @@
 (load "init/elpa.el")
 
 ;;;; Platform Dependent
+(setq load-path (cons "~/.emacs.d/local-lisp" load-path))
 (require-or-install 'blank-mode)
 (require-or-install 'paredit)
 (require-or-install 'yaml-mode)
@@ -127,7 +128,9 @@
 (setq eshell-directory-name "~/.emacs.d/eshell/")
 
 ;;;; Local Lisp: Libraries not checked into version control
-(setq load-path (cons "~/.emacs.d/local-lisp" load-path))
 (let ((local-init "~/.emacs.d/local-lisp/init.el"))
   (if (file-exists-p local-init)
       (load local-init)))
+
+;;;; GUI
+(load "init/gui.el")
