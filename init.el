@@ -45,19 +45,18 @@
 (setq even-window-heights nil) ;; stop commands like C-x 4 b from resizing
 (setq eval-expression-print-length nil) ;; don't truncate eval prints
 (setq text-scale-mode-step 1.05) ;; Increase font size 5% each time
-(setq indent-tabs-mode nil)
-(setq c-basic-offset 4)
-(setq tab-width 4)
-(setq tab-always-indent t)
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq-default tab-always-indent t)
-(setq-default js2-mirror-mode nil)
-(setq-default even-window-heights nil)
+(setq delete-selection-mode t) ;; Character inserts delete region
+(setq c-basic-offset 4) ;; Indent 4 spaces for C-style modes
+(setq tab-always-indent t) ;; TAB key always indents
+(setq-default major-mode 'org-mode) ;; Default major mode is org-mode
+(setq-default indent-tabs-mode nil) ;; Do not indent tabs
+(setq-default tab-width 4) ;; Default tab is generally 4 spaces
+(setq-default js2-mirror-mode nil) ;; Don't auto-insert the closing paren, brace
 (setq-default require-final-newline t) ;; All files should end in newline
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use shorter y/n prompt
 (put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut in dired
+(global-subword-mode t) ;; camelCase names are split into words
 
 ;;;; Clipboard Compatibility
 (setq x-select-enable-clipboard t)
@@ -86,8 +85,10 @@
             (setq tab-width 4)
             (local-set-key (kbd "M-;") 'comment-region)))
 
-(add-hook 'clojure-mode-hook (lambda ()
-                               (paredit-mode +1)))
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (paredit-mode +1)
+            (local-set-key (kbd "C-x E") 'slime-eval-buffer)))
 
 (add-to-list 'emacs-lisp-mode-hook (lambda ()
                                      (paredit-mode +1)))
