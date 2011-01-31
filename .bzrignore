@@ -3,3 +3,5 @@ tramp
 *.elc
 local-lisp
 elpa
+backups
+url
