@@ -23,6 +23,7 @@
   (message "color-theme not installed"))
 
 (iswitchb-mode t)
+(show-paren-mode t)
 (prefer-coding-system 'utf-8-unix)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -46,6 +47,7 @@
 (setq eval-expression-print-length nil) ;; don't truncate eval prints
 (setq text-scale-mode-step 1.05) ;; Increase font size 5% each time
 (setq delete-selection-mode t) ;; Character inserts delete region
+(setq show-paren-style 'parenthesis) ;; Only highlight the parentheses
 (setq c-basic-offset 4) ;; Indent 4 spaces for C-style modes
 (setq tab-always-indent t) ;; TAB key always indents
 (setq-default major-mode 'org-mode) ;; Default major mode is org-mode
