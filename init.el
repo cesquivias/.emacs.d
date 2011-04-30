@@ -16,6 +16,7 @@
 (require-or-install 'yaml-mode)
 ;; (require-or-install 'js2-mode) ;; js2-mode is screwing up
 (require-or-install 'swank-clojure) ;; Installs clojure, slime, slime-repl
+(require-or-install 'yasnippet-bundle)
 (if (require 'color-theme nil t)
     (progn
       (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb package
@@ -94,7 +95,7 @@
             (paredit-mode +1)
             (local-set-key (kbd "C-x E") 'slime-eval-buffer)))
 
-(add-to-list 'emacs-lisp-mode-hook (lambda ()
+(add-hook 'emacs-lisp-mode-hook (lambda ()
                                      (paredit-mode +1)))
 
 (add-hook 'org-mode-hook
@@ -143,3 +144,6 @@
 
 ;;;; GUI
 (load "init/gui.el")
+
+;;;; Utils
+(load "utils.el")
