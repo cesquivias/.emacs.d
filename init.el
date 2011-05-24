@@ -52,6 +52,7 @@
 (setq show-paren-style 'parenthesis) ;; Only highlight the parentheses
 (setq c-basic-offset 4) ;; Indent 4 spaces for C-style modes
 (setq tab-always-indent t) ;; TAB key always indents
+(setq tab-stop-list (number-sequence 4 80 4)) ;; Setting tab stop at 4 spaces
 (setq-default major-mode 'org-mode) ;; Default major mode is org-mode
 (setq-default indent-tabs-mode nil) ;; Do not indent tabs
 (setq-default tab-width 4) ;; Default tab is generally 4 spaces
