@@ -11,12 +11,13 @@
 
 ;;;; Platform Dependent
 (setq load-path (cons "~/.emacs.d/local-lisp" load-path))
-(require-or-install 'blank-mode)
+(require-or-install 'whitespace)
 (require-or-install 'paredit)
 (require-or-install 'yaml-mode)
-;; (require-or-install 'js2-mode) ;; js2-mode is screwing up
-(require-or-install 'swank-clojure) ;; Installs clojure, slime, slime-repl
-(require-or-install 'yasnippet-bundle)
+(require-or-install 'js2-mode) ;; js2-mode is screwing up
+(require-or-install 'clojure-mode)
+;; (require-or-install 'yasnippet-bundle)
+;; (require-or-install 'yas-jit)
 (if (require 'color-theme nil t)
     (progn
       (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb package
