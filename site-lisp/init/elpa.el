@@ -5,7 +5,7 @@
       (when (load (expand-file-name package-el))
         (package-initialize))
     (let ((buffer (url-retrieve-synchronously
-                   "http://tromey.com/elpa/package-install.el"))
+		   "http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el")) 
           (ifile user-init-file))
       (setq user-init-file nil)
       (unwind-protect
@@ -16,6 +16,10 @@
             (eval-region (point) (point-max))
             (kill-buffer (current-buffer)))
         (setq user-init-file ifile)))))
+
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
 
 (defun require-or-install (library-name &optional package-name)
   (unless (require library-name nil t)
