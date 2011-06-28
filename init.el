@@ -72,6 +72,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.rkt$" . scheme-mode))
 
 (add-hook 'text-mode-hook
           (lambda ()
@@ -97,8 +98,13 @@
             (paredit-mode +1)
             (local-set-key (kbd "C-x E") 'slime-eval-buffer)))
 
-(add-hook 'emacs-lisp-mode-hook (lambda ()
-                                     (paredit-mode +1)))
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (paredit-mode +1)))
+
+(add-hook 'scheme-mode-hook
+          (lambda ()
+            (paredit-mode +1)))
 
 (add-hook 'org-mode-hook
           (lambda ()
