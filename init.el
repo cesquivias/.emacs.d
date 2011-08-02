@@ -4,10 +4,16 @@
 
 ;;;; Site-Lisp: checked-in directory with libraries not available on ELPA
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path))
+(require 'package)
 (require 'dos)
 (require 'django-html-mode)
 (require 'android-mode)
 (load "init/elpa.el")
+
+(package-initialize)
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+                         ("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;;; Platform Dependent
 (setq load-path (cons "~/.emacs.d/local-lisp" load-path))
