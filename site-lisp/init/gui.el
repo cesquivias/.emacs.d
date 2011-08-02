@@ -40,6 +40,11 @@
                     (set-frame-height frame (max-frame-rows frame)))))
     (add-to-list 'initial-frame-alist `(height . ,(max-frame-rows))))
 
+(if ns-initialized
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (ns-do-applescript "tell application \"Emacs\" to activate"))))
+
 (when on-window-system?
   (global-set-key (kbd "C-+")
                   (lambda ()
