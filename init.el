@@ -115,6 +115,7 @@
 
 (add-hook 'org-mode-hook
           (lambda ()
+            (auto-fill-mode t)
             (local-set-key (kbd "C-<") 'org-metaleft)
             (local-set-key (kbd "C->") 'org-metaright)))
 
