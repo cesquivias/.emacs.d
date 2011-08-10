@@ -39,6 +39,10 @@
 (set-keyboard-coding-system 'utf-8)
 (global-font-lock-mode t)
 
+;; Saving Emacs state between startups
+(setq desktop-dirname "~/.emacs.d")
+(desktop-save-mode t)
+
 (setq default-directory "~/") ;; Always start in home directory
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
 ;; Don't litter directories
