@@ -158,6 +158,10 @@
 ;;;; Eshell
 (setq eshell-directory-name "~/.emacs.d/eshell/")
 
+;;;; org-mode
+(setq org-startup-folded 'showall)
+(setq org-goto-auto-isearch nil)
+
 ;;;; Local Lisp: Libraries not checked into version control
 (let ((local-init "~/.emacs.d/local-lisp/init.el"))
   (if (file-exists-p local-init)
