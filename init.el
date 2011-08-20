@@ -46,6 +46,7 @@
 (setq default-directory "~/") ;; Always start in home directory
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
 ;; Don't litter directories
+(blink-cursor-mode t) ;; Don't know why this isn't on on Macs
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq backup-by-copying t)
 (setq transient-mark-mode t) ;; default in emacs23
