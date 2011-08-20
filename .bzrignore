@@ -8,3 +8,6 @@ url
 eshell/history
 eshell/lastdir
 lib
+.emacs.desktop
+.emacs.desktop.lock
+desktop
