@@ -162,6 +162,20 @@
 (setq org-startup-folded 'showall)
 (setq org-goto-auto-isearch nil)
 
+;;; PlantUML plugin
+(let ((plantuml-jar (expand-file-name "~/.emacs.d/lib/plantuml.jar"))
+      (plantuml-url "http://sourceforge.net/projects/plantuml/files/plantuml.jar/download"))
+  (unless (file-exists-p plantuml-jar)
+    (url-copy-file plantuml-url plantuml-jar))
+  (setq org-plantuml-jar-path plantuml-jar))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)
+   (plantuml . t)
+   (ditaa . t)))
+
 ;;;; Local Lisp: Libraries not checked into version control
 (let ((local-init "~/.emacs.d/local-lisp/init.el"))
   (if (file-exists-p local-init)
