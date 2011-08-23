@@ -119,12 +119,6 @@
           (lambda ()
             (paredit-mode +1)))
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (auto-fill-mode t)
-            (local-set-key (kbd "C-<") 'org-metaleft)
-            (local-set-key (kbd "C->") 'org-metaright)))
-
 (defun bf-pretty-print-xml-region (begin end)
   "Pretty format XML markup in region. You need to have nxml-mode
    http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
@@ -160,6 +154,13 @@
 (setq eshell-directory-name "~/.emacs.d/eshell/")
 
 ;;;; org-mode
+(add-hook 'org-mode-hook
+          (lambda ()
+            (auto-fill-mode t)
+            (local-set-key (kbd "C-<") 'org-metaleft)
+            (local-set-key (kbd "C->") 'org-metaright)
+            (iimage-mode t)))
+
 (setq org-startup-folded 'showall)
 (setq org-goto-auto-isearch nil)
 
@@ -174,6 +175,7 @@
  'org-babel-load-languages
  '((emacs-lisp . t)
    (python . t)
+   (js . t)
    (plantuml . t)
    (ditaa . t)))
 
