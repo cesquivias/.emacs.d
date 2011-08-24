@@ -185,6 +185,21 @@
     (url-copy-file plantuml-url plantuml-jar))
   (setq org-plantuml-jar-path plantuml-jar))
 
+;;; ditaa plugin
+(let ((ditaa-jar (concat lib-directory "ditaa.jar")))
+  (unless (file-exists-p ditaa-jar)
+    (let ((ditaa-url "http://sourceforge.net/projects/ditaa/files/ditaa/0.9/ditaa0_9.zip/download")
+          (tmp-f (concat temp-directory "ditaa.zip"))
+          (tmp-d (file-name-as-directory (concat temp-directory "ditaa"))))
+      (url-copy-file ditaa-url tmp-f t) ;; download zip 
+      (shell-command (concat "unzip -d " tmp-d " " tmp-f)) ;; unzip
+      (rename-file (concat tmp-d (file-name-completion "ditaa" tmp-d))
+                   ditaa-jar)    ;; move jar
+      (delete-directory tmp-d t) ;; delete tmp dir
+      (delete-file tmp-f) ;; delete zip
+      ))
+  (setq org-ditaa-jar-path ditaa-jar))
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
