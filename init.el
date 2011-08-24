@@ -142,6 +142,20 @@
 ;;;; New Keyboard Shortcuts
 (global-set-key (kbd "M-C-;") 'uncomment-region)
 
+;;;; Custom variables
+(setq lib-directory (file-name-as-directory
+                     (expand-file-name "~/.emacs.d/lib")))
+(setq temp-directory (file-name-as-directory
+                      (expand-file-name "~/.emacs.d/tmp")))
+
+;;;; Custom functions
+(load "utils.el")
+
+;;;; Set up Temp Directory
+(if (file-exists-p temp-directory)
+    (delete-directory temp-directory t))
+(make-directory temp-directory)
+
 ;;; RST fixing
 (set-face-background 'rst-level-1-face "#000")
 (set-face-background 'rst-level-2-face "#000")
@@ -186,6 +200,3 @@
 
 ;;;; GUI
 (load "init/gui.el")
-
-;;;; Utils
-(load "utils.el")
