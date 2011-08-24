@@ -8,7 +8,7 @@
 (require 'dos)
 (require 'django-html-mode)
 (require 'android-mode)
-(load "init/elpa.el")
+(load "init/elpa")
 
 (package-initialize)
 (setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
@@ -149,7 +149,7 @@
                       (expand-file-name "~/.emacs.d/tmp")))
 
 ;;;; Custom functions
-(load "utils.el")
+(load "utils")
 
 ;;;; Set up Temp Directory
 (if (file-exists-p temp-directory)
@@ -214,4 +214,4 @@
       (load local-init)))
 
 ;;;; GUI
-(load "init/gui.el")
+(load "init/gui")
