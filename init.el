@@ -145,16 +145,16 @@
 ;;;; Custom variables
 (setq lib-directory (file-name-as-directory
                      (expand-file-name "~/.emacs.d/lib")))
+(make-directory lib-directory t)
+
 (setq temp-directory (file-name-as-directory
                       (expand-file-name "~/.emacs.d/tmp")))
-
-;;;; Custom functions
-(load "utils")
-
-;;;; Set up Temp Directory
 (if (file-exists-p temp-directory)
     (delete-directory temp-directory t))
 (make-directory temp-directory)
+
+;;;; Custom functions
+(load "utils")
 
 ;;; RST fixing
 (set-face-background 'rst-level-1-face "#000")
@@ -192,7 +192,7 @@
           (tmp-f (concat temp-directory "ditaa.zip"))
           (tmp-d (file-name-as-directory (concat temp-directory "ditaa"))))
       (url-copy-file ditaa-url tmp-f t) ;; download zip 
-      (shell-command (concat "unzip -d " tmp-d " " tmp-f)) ;; unzip
+      (unzip tmp-f tmp-d)
       (rename-file (concat tmp-d (file-name-completion "ditaa" tmp-d))
                    ditaa-jar)    ;; move jar
       (delete-directory tmp-d t) ;; delete tmp dir
