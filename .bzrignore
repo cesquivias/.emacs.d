@@ -11,3 +11,4 @@ lib
 .emacs.desktop
 .emacs.desktop.lock
 desktop
+tmp
