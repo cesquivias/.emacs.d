@@ -23,6 +23,7 @@
 (require-or-install 'js2-mode) ;; js2-mode is screwing up
 (require-or-install 'clojure-mode)
 (require-or-install 'org-install 'org)
+(require-or-install 'htmlize)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (require 'color-theme nil t)
