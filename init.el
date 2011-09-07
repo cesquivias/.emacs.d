@@ -25,6 +25,8 @@
 (require-or-install 'org-install 'org)
 (require-or-install 'slime)
 (require-or-install 'slime-repl)
+(require-or-install 'htmlize)
+
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (require 'color-theme nil t)
