@@ -48,9 +48,8 @@
 
 (setq default-directory "~/") ;; Always start in home directory
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
-;; Don't litter directories
 (blink-cursor-mode t) ;; Don't know why this isn't on on Macs
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups"))) ;; not in dirs
 (setq backup-by-copying t)
 (setq transient-mark-mode t) ;; default in emacs23
 (setq column-number-mode t) ;; show columns next to line numbers
@@ -74,6 +73,7 @@
 (setq-default tab-width 4) ;; Default tab is generally 4 spaces
 (setq-default js2-mirror-mode nil) ;; Don't auto-insert the closing paren, brace
 (setq-default require-final-newline t) ;; All files should end in newline
+(setq-default cursor-in-non-selected-windows nil) ;; blinking is annoying in bg
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use shorter y/n prompt
 (put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut in dired
