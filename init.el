@@ -24,6 +24,7 @@
 (require-or-install 'clojure-mode)
 (require-or-install 'org-install 'org)
 (require-or-install 'htmlize)
+(require-or-install 'deft)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (require 'color-theme nil t)
@@ -168,6 +169,12 @@
 
 ;;;; Eshell
 (setq eshell-directory-name "~/.emacs.d/eshell/")
+
+;;;; Deft
+(setq deft-extenstion "org")
+(setq deft-directory "~/org/deft/")
+(make-directory deft-directory 'parents) ;; make sure it exists
+(setq deft-text-mode 'org-mode)
 
 ;;;; org-mode
 (add-hook 'org-mode-hook
