@@ -43,7 +43,8 @@
 (if ns-initialized
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (ns-do-applescript "tell application \"Emacs\" to activate"))))
+                (if (eq (framep frame) 'ns)
+                  (ns-do-applescript "tell application \"Emacs\" to activate")))))
 
 (when on-window-system?
   (global-set-key (kbd "C-+")
