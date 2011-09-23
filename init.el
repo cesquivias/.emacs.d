@@ -217,6 +217,9 @@
    (plantuml . t)
    (ditaa . t)))
 
+;;; Scheme
+(setq scheme-program-name "racket")
+
 ;;;; Local Lisp: Libraries not checked into version control
 (let ((local-init "~/.emacs.d/local-lisp/init.el"))
   (if (file-exists-p local-init)
