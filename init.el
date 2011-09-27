@@ -26,7 +26,7 @@
 (require-or-install 'slime)
 (require-or-install 'slime-repl)
 (require-or-install 'htmlize)
-
+(require-or-install 'deft)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (require 'color-theme nil t)
@@ -172,6 +172,12 @@
 ;;;; Eshell
 (setq eshell-directory-name "~/.emacs.d/eshell/")
 
+;;;; Deft
+(setq deft-extenstion "org")
+(setq deft-directory "~/org/deft/")
+(make-directory deft-directory 'parents) ;; make sure it exists
+(setq deft-text-mode 'org-mode)
+
 ;;;; org-mode
 (add-hook 'org-mode-hook
           (lambda ()
@@ -212,6 +218,9 @@
    (js . t)
    (plantuml . t)
    (ditaa . t)))
+
+;;; Scheme
+(setq scheme-program-name "racket")
 
 ;;;; Local Lisp: Libraries not checked into version control
 (let ((local-init "~/.emacs.d/local-lisp/init.el"))
