@@ -3,7 +3,7 @@
 (require 'rst)
 
 ;;;; Site-Lisp: checked-in directory with libraries not available on ELPA
-(setq load-path (cons "~/.emacs.d/site-lisp" load-path))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp"))
 (require 'package)
 (require 'dos)
 (require 'django-html-mode)
@@ -16,7 +16,7 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;;; Platform Dependent
-(setq load-path (cons "~/.emacs.d/local-lisp" load-path))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
 (require-or-install 'whitespace)
 (require-or-install 'paredit)
 (require-or-install 'yaml-mode)
