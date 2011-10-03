@@ -7,7 +7,6 @@
 (require 'package)
 (require 'dos)
 (require 'django-html-mode)
-(require 'android-mode)
 (load "init/elpa")
 
 (package-initialize)
@@ -27,6 +26,7 @@
 (require-or-install 'slime-repl)
 (require-or-install 'htmlize)
 (require-or-install 'deft)
+(require-or-install 'android-mode)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (require 'color-theme nil t)
