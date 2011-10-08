@@ -6,8 +6,9 @@
           (x-initialize-window-system)
           nil)) ;; daemon, xwin startup
 (setq ns-initialized
-      (if (functionp 'ns-initialize-window-system)
-          (ns-initialize-window-system)))
+      (or ns-initialized
+          (if (functionp 'ns-initialize-window-system)
+              (ns-initialize-window-system))))
 (setq on-window-system?
       (or (window-system) ;; non-daemon, GUI startup
           ns-initialized ;; daemon, mac startup
