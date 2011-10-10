@@ -103,6 +103,10 @@
 
 (add-hook 'java-mode-hook
           (lambda ()
+            ;; Make annotations comments
+            (setq c-comment-start-regexp "(@|/(/|[*][*]?))")
+            (modify-syntax-entry ?@ "< b" java-mode-syntax-table)
+
             (setq tab-width 4)
             (setq tab-always-indent t)))
 
