@@ -6,7 +6,8 @@
           (x-initialize-window-system)
           nil)) ;; daemon, xwin startup
 (setq ns-initialized
-      (or ns-initialized
+      (or (and (boundp 'ns-initialized)
+               ns-initialized)
           (if (functionp 'ns-initialize-window-system)
               (ns-initialize-window-system))))
 (setq on-window-system?
@@ -27,7 +28,8 @@
 (let* ((top (if on-x-windows? 23 0)) ;; x doesn't compensate for the title bar
        (left (if on-x-windows? 4 0))) ;; x doesn't compensate for the chrome
   (add-to-list 'default-frame-alist `(top . ,top))
-  (add-to-list 'initial-frame-alist `(left . ,left)))
+  (add-to-list
+   'initial-frame-alist `(left . ,left)))
 (add-to-list 'default-frame-alist '(width . 80))
 
 (defun max-frame-rows (&optional frame)
