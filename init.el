@@ -128,6 +128,9 @@
           (lambda ()
             (paredit-mode +1)))
 
+(eval-after-load "eshell"
+  '(eshell-remove-from-window-buffer-names))
+
 (defun bf-pretty-print-xml-region (begin end)
   "Pretty format XML markup in region. You need to have nxml-mode
    http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
