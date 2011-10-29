@@ -91,6 +91,7 @@
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.rkt$" . scheme-mode))
+(add-to-list 'auto-mode-alist '("\\.just$" . clojure-mode))
 
 (add-hook 'text-mode-hook
           (lambda ()
