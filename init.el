@@ -87,6 +87,9 @@
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
+;;;; Put tooltips in minibuffer
+(tooltip-mode -1)
+(setq tooltip-use-echo-area t)
 
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
@@ -131,6 +134,8 @@
 
 (eval-after-load "eshell"
   '(eshell-remove-from-window-buffer-names))
+
+;;; XML pretty printing
 
 (defun bf-pretty-print-xml-region (begin end)
   "Pretty format XML markup in region. You need to have nxml-mode
