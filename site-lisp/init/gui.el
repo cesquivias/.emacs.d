@@ -32,6 +32,8 @@
    'initial-frame-alist `(left . ,left)))
 (add-to-list 'default-frame-alist '(width . 80))
 
+(add-to-list 'default-frame-alist '(alpha . 93))
+
 (defun max-frame-rows (&optional frame)
   (/ (- (x-display-pixel-height frame) 70)
      (/ (frame-pixel-height frame) (frame-height frame))))
