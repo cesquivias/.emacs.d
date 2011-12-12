@@ -150,6 +150,7 @@
 
 ;;;; New Keyboard Shortcuts
 (global-set-key (kbd "M-C-;") 'uncomment-region)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;;;; Custom variables
 (setq lib-directory (file-name-as-directory
