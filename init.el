@@ -159,7 +159,8 @@
 
 ;;;; New Keyboard Shortcuts
 (global-set-key (kbd "M-C-;") 'uncomment-region)
-(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-c p") 'package-list-packages)
 
 ;;;; Custom variables
 (setq lib-directory (file-name-as-directory
@@ -191,6 +192,7 @@
 (setq deft-directory "~/org/deft/")
 (make-directory deft-directory 'parents) ;; make sure it exists
 (setq deft-text-mode 'org-mode)
+(global-set-key (kbd "C-c d") 'deft)
 
 ;;;; org-mode
 (add-hook 'org-mode-hook
