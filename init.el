@@ -199,8 +199,7 @@
           (lambda ()
             (auto-fill-mode t)
             (local-set-key (kbd "C-<") 'org-metaleft)
-            (local-set-key (kbd "C->") 'org-metaright)
-            (iimage-mode t)))
+            (local-set-key (kbd "C->") 'org-metaright)))
 
 (setq org-startup-folded 'showall)
 (setq org-goto-auto-isearch nil)
