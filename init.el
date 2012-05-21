@@ -70,6 +70,7 @@
 (setq tab-always-indent t) ;; TAB key always indents
 (setq tab-stop-list (number-sequence 4 80 4)) ;; Setting tab stop at 4 spaces
 (setq kill-whole-line t) ;; Kill whole line when at the beginning of the line
+(setq compilation-scroll-output t) ;; Auto-scroll buffer with new output
 (setq-default major-mode 'org-mode) ;; Default major mode is org-mode
 (setq-default indent-tabs-mode nil) ;; Do not indent tabs
 (setq-default tab-width 4) ;; Default tab is generally 4 spaces
