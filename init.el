@@ -27,6 +27,7 @@
 (require-or-install 'htmlize)
 (require-or-install 'deft)
 (require-or-install 'android-mode)
+(require-or-install 'iy-go-to-char)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (require 'color-theme nil t)
@@ -161,6 +162,7 @@
 (global-set-key (kbd "M-C-;") 'uncomment-region)
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c p") 'package-list-packages)
+(global-set-key (kbd "C-z") 'iy-go-to-char) ;; who needs suspend-frame?
 
 ;;;; Custom variables
 (setq lib-directory (file-name-as-directory
