@@ -38,9 +38,10 @@
 (iswitchb-mode t)
 (show-paren-mode t)
 (prefer-coding-system 'utf-8-unix)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+(setq-default buffer-file-coding-system 'utf-8-unix)
 (global-font-lock-mode t)
 
 ;; Saving Emacs state between startups
