@@ -6,9 +6,12 @@
     (message "Loading ELPA information..")
     (package-refresh-contents)
     (setq packages-loaded t))
-  (unless (package-installed-p library-name min-version)
+  (if (package-installed-p library-name min-version)
+      (require library-name)
     (message (format "%s was not found. Installing %s from ELPA"
                      library-name library-name))
     (condition-case ex
-        (package-install library-name)
+        (progn
+          (package-install library-name)
+          (require library-name))
       (error (message (error-message-string ex))))))

@@ -30,12 +30,10 @@
 (require-or-install 'iy-go-to-char)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
-(if (require 'color-theme nil t)
-    (progn
-      (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb package
-          (color-theme-initialize))
-      (color-theme-ld-dark))
-  (message "color-theme not installed"))
+(require-or-install 'color-theme)
+(if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb package
+    (color-theme-initialize))
+(color-theme-ld-dark)
 
 (iswitchb-mode t)
 (show-paren-mode t)
