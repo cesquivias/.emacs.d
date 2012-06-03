@@ -49,7 +49,8 @@
 (global-font-lock-mode t)
 
 ;; Saving Emacs state between startups
-(setq desktop-dirname (expand-file-name "~/.emacs.d/desktop"))
+(setq desktop-dirname (expand-file-name "~/.emacs.d/desktop/")
+      desktop-path (list desktop-dirname))
 (make-directory desktop-dirname t)
 (desktop-save-mode t)
 
