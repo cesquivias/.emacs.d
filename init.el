@@ -35,6 +35,10 @@
     (color-theme-initialize))
 (color-theme-ld-dark)
 
+;;; Start Server When not in daemon mode
+(unless (daemonp)
+  (server-start))
+
 (iswitchb-mode t)
 (show-paren-mode t)
 (prefer-coding-system 'utf-8-unix)
