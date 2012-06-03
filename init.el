@@ -1,6 +1,7 @@
 ;;;; Built-In
 (require 'uniquify)
 (require 'rst)
+(require 'whitespace)
 
 ;;;; Site-Lisp: checked-in directory with libraries not available on ELPA
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp"))
@@ -16,12 +17,11 @@
 
 ;;;; Platform Dependent
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
-(require-or-install 'whitespace)
 (require-or-install 'paredit)
 (require-or-install 'yaml-mode)
 (require-or-install 'js2-mode) ;; js2-mode is screwing up
 (require-or-install 'clojure-mode)
-(require-or-install 'org-install 'org)
+(require-or-install 'org)
 (require-or-install 'slime)
 (require-or-install 'slime-repl)
 (require-or-install 'htmlize)
