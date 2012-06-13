@@ -196,7 +196,7 @@
 (setq eshell-directory-name "~/.emacs.d/eshell/")
 
 ;;;; Deft
-(setq deft-extenstion "org")
+(setq deft-extension "org")
 (setq deft-directory "~/org/deft/")
 (make-directory deft-directory 'parents) ;; make sure it exists
 (setq deft-text-mode 'org-mode)
