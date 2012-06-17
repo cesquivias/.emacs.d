@@ -252,3 +252,6 @@
 
 ;;;; GUI
 (load "init/gui")
+
+;;;; Set eclipse indentation as default for java
+(load "eclipse-indent")
