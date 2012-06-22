@@ -33,8 +33,6 @@
 (if (>= emacs-major-version 24)
     (load-theme 'wombat t)
   (require-or-install 'color-theme)
-  (if (fboundp 'color-theme-initialize) ;; Doesn't exist in .deb package
-      (color-theme-initialize))
   (color-theme-ld-dark))
 
 ;;; Start Server When not in daemon mode
