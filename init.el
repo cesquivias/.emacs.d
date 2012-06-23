@@ -136,6 +136,7 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (paredit-mode +1)))
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
 (add-hook 'scheme-mode-hook
           (lambda ()
