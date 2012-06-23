@@ -20,9 +20,8 @@
 (tool-bar-mode -1)
 (set-scroll-bar-mode 'right)
 
-(when on-x-windows?
-  (add-to-list 'default-frame-alist
-               '(font . "-unknown-Liberation Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")))
+(if (font-info "Liberation Mono")
+    (set-face-attribute 'default nil :font "Liberation Mono-10"))
 
 ;; Adjust GUI window position
 (let* ((top (if on-x-windows? 23 0)) ;; x doesn't compensate for the title bar

@@ -51,7 +51,8 @@
 (global-font-lock-mode t)
 
 ;; Saving Emacs state between startups
-(setq desktop-dirname (expand-file-name "~/.emacs.d/desktop"))
+(setq desktop-dirname (expand-file-name "~/.emacs.d/desktop/")
+      desktop-path (list desktop-dirname))
 (make-directory desktop-dirname t)
 (desktop-save-mode t)
 
@@ -199,7 +200,7 @@
 (setq eshell-directory-name "~/.emacs.d/eshell/")
 
 ;;;; Deft
-(setq deft-extenstion "org")
+(setq deft-extension "org")
 (setq deft-directory "~/org/deft/")
 (make-directory deft-directory 'parents) ;; make sure it exists
 (setq deft-text-mode 'org-mode)
@@ -255,3 +256,6 @@
 
 ;;;; GUI
 (load "init/gui")
+
+;;;; Set eclipse indentation as default for java
+(load "eclipse-indent")

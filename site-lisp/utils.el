@@ -1,3 +1,8 @@
+(defun shell-command-if-exists (exec args)
+  (if (executable-find exec)
+      (shell-command (concat exec " " args))
+    (message (concat "'" exec "' not found. Please install."))))
+
 (defun wget (url)
   "Download file for the given URL, using the same filename."
   (url-copy-file url (url-file-nondirectory url)))
@@ -16,7 +21,8 @@
     (cd original-dir)))
 
 (defun unzip (zip-file odir)
-  "Try to use whatever tool is available on the system to unzip a file. "
+  "Unzip a .zip file into `odir' directory specified. Try to use whatever tool is available on the system to unzip a file. "
+  (make-directory odir t)
   (if (memq system-type '(ms-dos windows-nt))
       (unzip-with-jar zip-file odir)
-      (shell-command (concat "unzip -d " odir " " zip-file))))
+    (shell-command-if-exists "unzip" (concat "-d " odir " " zip-file))))
