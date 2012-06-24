@@ -91,8 +91,9 @@
     (global-subword-mode t)) ;; camelCase names are split into words
 
 ;;;; Clipboard Compatibility
-(setq x-select-enable-clipboard t)
-(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+(when (eq (window-system) 'x)
+  (setq x-select-enable-clipboard t)
+  (setq interprogram-paste-function 'x-cut-buffer-or-selection-value))
 
 ;;;; Put tooltips in minibuffer
 (tooltip-mode -1)
@@ -134,6 +135,7 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (paredit-mode +1)))
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
 (add-hook 'scheme-mode-hook
           (lambda ()
