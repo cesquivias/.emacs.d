@@ -14,3 +14,5 @@ eshell/history/
 eshell/lastdir/
 tmp/
 server
+semanticdb/
+srecode-map.el
