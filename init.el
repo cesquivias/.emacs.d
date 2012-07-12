@@ -28,6 +28,7 @@
 (require-or-install 'deft)
 (require-or-install 'android-mode)
 (require-or-install 'iy-go-to-char)
+(require-or-install 'magit)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (>= emacs-major-version 24)
