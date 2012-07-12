@@ -163,6 +163,9 @@
 
 (add-hook 'nxml-mode-hook
              (lambda ()
+               (local-set-key (kbd "M-h") 'nxml-mark-token-after)
+               (local-set-key (kbd "M-{") 'nxml-backward-element)
+               (local-set-key (kbd "M-}") 'nxml-forward-element)
                (local-set-key (kbd "C-M-q") 'bf-pretty-print-xml-region)
                ;; sgml-mode made this shortcut second hand
                (local-set-key (kbd "C-c /") 'nxml-finish-element)))
