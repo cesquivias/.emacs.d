@@ -183,6 +183,7 @@
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c p") 'package-list-packages)
 (global-set-key (kbd "C-z") 'iy-go-to-char) ;; who needs suspend-frame?
+(global-set-key (kbd "C-c w") 'whitespace-mode)
 
 ;;;; Custom variables
 (setq lib-directory (file-name-as-directory
