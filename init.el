@@ -1,19 +1,25 @@
-;;;; Built-In
-(require 'uniquify)
-(require 'rst)
-(require 'whitespace)
 
 ;;;; Site-Lisp: checked-in directory with libraries not available on ELPA
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp"))
-(require 'package)
 (require 'dos)
 (require 'django-html-mode)
-(load "init/elpa")
 
+(load "init/elpa")
+(require 'package)
 (package-initialize)
 (setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+
+;;;; Local Lisp: Libraries not checked into version control
+(let ((local-init "~/.emacs.d/local-lisp/init.el"))
+  (if (file-exists-p local-init)
+      (load local-init)))
+
+;;;; Built-In
+(require 'uniquify)
+(require 'rst)
+(require 'whitespace)
 
 ;;;; Platform Dependent
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
@@ -247,11 +253,6 @@
 
 ;;; Scheme
 (setq scheme-program-name "racket")
-
-;;;; Local Lisp: Libraries not checked into version control
-(let ((local-init "~/.emacs.d/local-lisp/init.el"))
-  (if (file-exists-p local-init)
-      (load local-init)))
 
 ;;;; GUI
 (load "init/gui")
