@@ -74,6 +74,7 @@
 (setq inhibit-splash-screen t) ;; useless
 (setq uniquify-buffer-name-style 'reverse) ;; filename/parent
 (setq line-move-visual nil) ;; Move logical--not visual, word-wrapped--lines
+(setq scroll-preserve-screen-position t) ;; scrolling back and forth keeps place
 (setq even-window-heights nil) ;; stop commands like C-x 4 b from resizing
 (setq eval-expression-print-length nil) ;; don't truncate eval prints
 (setq text-scale-mode-step 1.05) ;; Increase font size 5% each time
