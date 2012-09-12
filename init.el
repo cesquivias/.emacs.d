@@ -139,6 +139,7 @@
           (lambda ()
             (paredit-mode +1)
             (local-set-key (kbd "C-x E") 'slime-eval-buffer)))
+(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
