@@ -182,6 +182,7 @@
 (global-set-key (kbd "M-C-;") 'uncomment-region)
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c p") 'package-list-packages)
+(global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-z") 'iy-go-to-char) ;; who needs suspend-frame?
 
 ;;;; Custom variables
@@ -264,3 +265,15 @@
 
 ;;;; Set eclipse indentation as default for java
 (load "eclipse-indent")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("72cc9ae08503b8e977801c6d6ec17043b55313cda34bcf0e6921f2f04cf2da56" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
