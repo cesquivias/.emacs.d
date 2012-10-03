@@ -244,11 +244,12 @@
           (tmp-f (concat temp-directory "ditaa.zip"))
           (tmp-d (file-name-as-directory (concat temp-directory "ditaa"))))
       (url-copy-file ditaa-url tmp-f t) ;; download zip 
-      (unzip tmp-f tmp-d)
-      (rename-file (concat tmp-d (file-name-completion "ditaa" tmp-d))
-                   ditaa-jar)    ;; move jar
-      (delete-directory tmp-d t) ;; delete tmp dir
-      (delete-file tmp-f) ;; delete zip
+      (and
+       (unzip tmp-f tmp-d)
+       (rename-file (concat tmp-d (file-name-completion "ditaa" tmp-d))
+                    ditaa-jar)    ;; move jar
+       (delete-directory tmp-d t) ;; delete tmp dir
+       (delete-file tmp-f)) ;; delete zip
       ))
   (setq org-ditaa-jar-path ditaa-jar))
 
