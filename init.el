@@ -64,7 +64,7 @@
 
 (setq default-directory "~/") ;; Always start in home directory
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
-(blink-cursor-mode t) ;; Don't know why this isn't on on Macs
+(setq blink-cursor-mode t) ;; Don't know why this isn't on on Macs
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups"))) ;; not in dirs
 (setq backup-by-copying t)
 (setq transient-mark-mode t) ;; default in emacs23
@@ -267,6 +267,7 @@
 
 ;;;; GUI
 (load "init/gui")
+(load "init/faces")
 
 ;;;; Set eclipse indentation as default for java
 (load "eclipse-indent")
