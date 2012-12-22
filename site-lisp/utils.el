@@ -26,3 +26,8 @@
   (if (memq system-type '(ms-dos windows-nt))
       (unzip-with-jar zip-file odir)
     (shell-command-if-exists "unzip" (concat "-d " odir " " zip-file))))
+
+(defun insert-lambda ()
+  "Insert a λ character at point."
+  (interactive)
+  (insert-char ?\λ 1))

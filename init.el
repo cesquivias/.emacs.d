@@ -181,14 +181,6 @@
                (local-set-key (kbd "C-c /") 'nxml-finish-element)))
 (setq-default nxml-child-indent 4)
 
-;;;; New Keyboard Shortcuts
-(global-set-key (kbd "M-C-;") 'uncomment-region)
-(global-set-key (kbd "C-c g") 'magit-status)
-(global-set-key (kbd "C-c p") 'package-list-packages)
-(global-set-key (kbd "C-c w") 'whitespace-mode)
-(global-set-key (kbd "C-z") 'iy-go-to-char) ;; who needs suspend-frame?
-(global-set-key (kbd "C-c w") 'whitespace-mode)
-
 ;;;; Custom variables
 (setq lib-directory (file-name-as-directory
                      (expand-file-name "~/.emacs.d/lib")))
@@ -202,6 +194,9 @@
 
 ;;;; Custom functions
 (load "utils")
+
+;;;; New Keyboard Shortcuts
+(load "keybindings")
 
 ;;; RST fixing
 (set-face-background 'rst-level-1-face "#000")
