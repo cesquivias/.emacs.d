@@ -34,6 +34,7 @@
 (require-or-install 'htmlize)
 (require-or-install 'deft)
 (require-or-install 'android-mode)
+(require-or-install 'geiser)
 (require-or-install 'iy-go-to-char)
 (require-or-install 'magit)
 ;; (require-or-install 'yasnippet-bundle)
