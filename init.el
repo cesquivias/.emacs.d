@@ -87,6 +87,8 @@
 (setq kill-whole-line t) ;; Kill whole line when at the beginning of the line
 (setq dired-listing-switches "-alh")
 (setq compilation-scroll-output t) ;; Auto-scroll buffer with new output
+(setq-default dabbrev-case-replace 'nil) ;; Don't change the case when expanding
+(setq-default dabbrev-case-fold-search 'nil) ;; Don't use different-cased words
 (setq-default major-mode 'org-mode) ;; Default major mode is org-mode
 (setq-default indent-tabs-mode nil) ;; Do not indent tabs
 (setq-default tab-width 4) ;; Default tab is generally 4 spaces
