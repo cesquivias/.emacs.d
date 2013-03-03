@@ -20,9 +20,10 @@
                         (arglist-intro  . ++)
                         (arglist-close  . c-lineup-arglist)
                         (access-label   . 0)
-                        (inher-cont     . c-lineup-java-inher)
+                        (inher-cont     . ++)
                         (func-decl-cont . c-lineup-java-throws)
                         (arglist-cont-nonempty . ++)
+                        (func-decl-cont . ++)
                         )))
   "Eclipse Java Programming Style")
 
