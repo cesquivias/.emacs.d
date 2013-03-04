@@ -5,3 +5,9 @@
 (global-set-key (kbd "C-z") 'iy-go-to-char) ;; who needs suspend-frame?
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c l") 'insert-lambda)
+
+;; Windmove
+(global-set-key (kbd "M-P") 'windmove-up)
+(global-set-key (kbd "M-N") 'windmove-down)
+(global-set-key (kbd "M-B") 'windmove-left)
+(global-set-key (kbd "M-F") 'windmove-right)
