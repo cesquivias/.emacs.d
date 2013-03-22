@@ -72,6 +72,7 @@
 (setq column-number-mode t) ;; show columns next to line numbers
 (setq read-file-name-completion-ignore-case t) ;; filenames are case insensitive
 (setq read-buffer-completion-ignore-case t) ;; buffer names are case insensitive
+(setq iswitchb-case t) ;; iswitchb ignores case
 (setq confirm-kill-emacs 'yes-or-no-p) ;; to prevent those accidental exits
 (setq inhibit-splash-screen t) ;; useless
 (setq uniquify-buffer-name-style 'reverse) ;; filename/parent
