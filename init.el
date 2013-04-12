@@ -13,6 +13,7 @@
                          ("org" . "http://orgmode.org/elpa/")))
 
 ;;;; Local Lisp: Libraries not checked into version control
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
 (let ((local-init "~/.emacs.d/local-lisp/init.el"))
   (if (file-exists-p local-init)
       (load local-init)))
@@ -23,7 +24,6 @@
 (require 'whitespace)
 
 ;;;; Platform Dependent
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
 (require-or-install 'paredit)
 (require-or-install 'yaml-mode)
 (require-or-install 'js2-mode) ;; js2-mode is screwing up
