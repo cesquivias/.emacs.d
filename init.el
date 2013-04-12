@@ -202,12 +202,21 @@
 (load "keybindings")
 
 ;;; RST fixing
-(set-face-background 'rst-level-1-face "#000")
-(set-face-background 'rst-level-2-face "#000")
-(set-face-background 'rst-level-3-face "#000")
-(set-face-background 'rst-level-4-face "#000")
-(set-face-background 'rst-level-5-face "#000")
-(set-face-background 'rst-level-6-face "#000")
+(if (or (> emacs-major-version 24)
+        (and (eq emacs-major-version 24) (>= emacs-minor-version 3)))
+    (progn
+     (set-face-background 'rst-level-1 "#000")
+     (set-face-background 'rst-level-2 "#000")
+     (set-face-background 'rst-level-3 "#000")
+     (set-face-background 'rst-level-4 "#000")
+     (set-face-background 'rst-level-5 "#000")
+     (set-face-background 'rst-level-6 "#000"))
+  (set-face-background 'rst-level-1-face "#000")
+  (set-face-background 'rst-level-2-face "#000")
+  (set-face-background 'rst-level-3-face "#000")
+  (set-face-background 'rst-level-4-face "#000")
+  (set-face-background 'rst-level-5-face "#000")
+  (set-face-background 'rst-level-6-face "#000"))
 
 ;;;; Eshell
 (setq eshell-directory-name "~/.emacs.d/eshell/")
