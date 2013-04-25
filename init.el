@@ -63,6 +63,12 @@
 (make-directory desktop-dirname t)
 (desktop-save-mode t)
 
+;; Recent files
+(require 'recentf)
+(setq recentf-max-saved-items 100)
+(setq recentf-max-menu-items 15)
+(recentf-mode)
+
 (setq default-directory "~/") ;; Always start in home directory
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
 (setq blink-cursor-mode t) ;; Don't know why this isn't on on Macs
