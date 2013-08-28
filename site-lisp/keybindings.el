@@ -16,3 +16,9 @@
 (global-set-key (kbd "M-N") 'windmove-down)
 (global-set-key (kbd "M-B") 'windmove-left)
 (global-set-key (kbd "M-F") 'windmove-right)
+
+;; Double width
+(global-set-key (kbd "C-c 2")
+                (lambda ()
+                  (interactive)
+                  (set-frame-width (selected-frame) 164)))
