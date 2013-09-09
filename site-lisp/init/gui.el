@@ -2,7 +2,7 @@
 ;; window-system returns nil when started from daemon. Have to do some
 ;; tricky logic to determine if we'll have frames at any time
 (setq on-x-windows?
-      (if (functionp 'x-initialize-window-system)
+      (if (and (functionp 'x-initialize-window-system) (not x-initialized))
           (x-initialize-window-system)
           nil)) ;; daemon, xwin startup
 (setq ns-initialized
