@@ -17,11 +17,4 @@
 (global-set-key (kbd "M-B") 'windmove-left)
 (global-set-key (kbd "M-F") 'windmove-right)
 
-;; Double width
-(defun set-frame-double-width ()
-  (interactive)
-  (let ((f (selected-frame)))
-    (set-frame-width f (+ (* 2 (frame-width f)) 4))))
-
-(global-set-key (kbd "C-c 2")
-                'set-frame-double-width)
+(global-set-key (kbd "C-c 3") 'double-frame-right)
