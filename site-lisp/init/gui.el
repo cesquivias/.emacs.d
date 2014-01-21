@@ -25,14 +25,8 @@ Adds some extra width for scrollbars"
 ;; window-system returns nil when started from daemon. Have to do some
 ;; tricky logic to determine if we'll have frames at any time
 (setq on-x-windows?
-<<<<<<< local
-      (if (and (functionp 'x-initialize-window-system) (not x-initialized))
-          (x-initialize-window-system)
-          nil)) ;; daemon, xwin startup
-=======
       (or (functionp 'x-initialize-window-system)
           (eq (window-system) 'x))) ;; daemon, xwin startup
->>>>>>> other
 (setq ns-initialized
       (or (and (boundp 'ns-initialized)
                ns-initialized)
