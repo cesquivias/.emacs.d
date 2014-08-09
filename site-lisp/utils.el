@@ -1,4 +1,5 @@
 (defun shell-command-if-exists (exec args)
+  "Run `exec' if the file exists. If not, output an error message."
   (if (executable-find exec)
       (shell-command (concat exec " " args))
     (message (concat "'" exec "' not found. Please install."))))

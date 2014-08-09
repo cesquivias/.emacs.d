@@ -1,12 +1,12 @@
 ;; Functions
 
 (defun max-frame-rows (&optional frame)
-  "The number of rows for the frame and still fit on the current screen."
+  "The number of rows for the frame and still fit on the selected screen."
   (/ (- (x-display-pixel-height frame) 70)
      (/ (frame-pixel-height frame) (frame-height frame))))
 
 (defun set-frame-double-width ()
-  "Doubles the width of the current frame.
+  "Doubles the width of the selected frame.
 Adds some extra width for scrollbars"
   (interactive)
   (let ((f (selected-frame)))

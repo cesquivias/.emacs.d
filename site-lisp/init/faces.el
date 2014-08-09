@@ -6,4 +6,6 @@
  '(diff-changed ((t (:foreground "magenta"))) 'now)
  '(diff-file-header ((t (:background "black" :foreground "yellow" :weight ultra-bold))) 'now)
  '(diff-header ((t (:background "black" :foreground "yellow"))) 'now)
- '(diff-hunk-header ((t (:background "black" :foreground "gold"))) 'now))
+ '(diff-hunk-header ((t (:background "black" :foreground "gold"))) 'now)
+
+ '(which-func ((t (:foreground "dodger blue")))))
