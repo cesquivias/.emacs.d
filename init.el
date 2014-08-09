@@ -164,7 +164,10 @@
           (lambda ()
             (paredit-mode +1)))
 
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
 (eval-after-load "eshell"
+  '(eshell-remove-from-window-buffer-names))(eval-after-load "eshell"
   '(eshell-remove-from-window-buffer-names))
 
 ;;; XML pretty printing
