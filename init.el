@@ -59,7 +59,8 @@
 
 ;; Saving Emacs state between startups
 (setq desktop-dirname (expand-file-name "~/.emacs.d/desktop/")
-      desktop-path (list desktop-dirname))
+      desktop-path (list desktop-dirname)
+      desktop-base-file-name "emacs-desktop")
 (make-directory desktop-dirname t)
 (desktop-save-mode t)
 
