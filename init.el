@@ -37,6 +37,7 @@
 (require-or-install 'geiser)
 (require-or-install 'iy-go-to-char)
 (require-or-install 'magit)
+(require-or-install 'markdown-mode)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (>= emacs-major-version 24)
@@ -105,6 +106,7 @@
 (setq-default js2-mirror-mode nil) ;; Don't auto-insert the closing paren, brace
 (setq-default require-final-newline t) ;; All files should end in newline
 (setq-default cursor-in-non-selected-windows nil) ;; blinking is annoying in bg
+(setq-default sentence-end-double-space nil) ;; 1 space separates senteces
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use shorter y/n prompt
 (put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut in dired
@@ -126,6 +128,7 @@
 (add-to-list 'auto-mode-alist '("\\.rkt$" . scheme-mode))
 (add-to-list 'auto-mode-alist '("\\.just$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.jie$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 (add-hook 'text-mode-hook
           (lambda ()
