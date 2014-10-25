@@ -1,7 +1,7 @@
-(global-set-key (kbd "C-M-<backspace>") (lambda ()
-                                          (interactive)
-                                          (back-to-indentation)
-                                          (kill-line)))
+;; (global-set-key (kbd "C-M-<backspace>") (lambda ()
+;;                                           (interactive)
+;;                                           (back-to-indentation)
+;;                                           (kill-line)))
 (global-set-key (kbd "C-z") 'iy-go-to-char) ;; who needs suspend-frame?
 
 (global-set-key (kbd "M-C-;") 'uncomment-region)

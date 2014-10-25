@@ -6,11 +6,11 @@
 
 (load "init/elpa")
 (require 'package)
-(package-initialize)
 (setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")))
+(package-initialize)
 
 ;;;; Local Lisp: Libraries not checked into version control
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
@@ -85,7 +85,7 @@
 (setq confirm-kill-emacs 'yes-or-no-p) ;; to prevent those accidental exits
 (setq inhibit-splash-screen t) ;; useless
 (setq uniquify-buffer-name-style 'reverse) ;; filename/parent
-(setq line-move-visual nil) ;; Move logical--not visual, word-wrapped--lines
+;; (setq line-move-visual nil) ;; Move logical--not visual, word-wrapped--lines
 (setq scroll-preserve-screen-position t) ;; scrolling back and forth keeps place
 (setq even-window-heights nil) ;; stop commands like C-x 4 b from resizing
 (setq eval-expression-print-length nil) ;; don't truncate eval prints
