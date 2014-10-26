@@ -27,11 +27,13 @@ Adds some extra width for scrollbars"
 (setq on-x-windows?
       (or (functionp 'x-initialize-window-system)
           (eq (window-system) 'x))) ;; daemon, xwin startup
-(setq ns-initialized
-      (or (and (boundp 'ns-initialized)
-               ns-initialized)
-          (if (functionp 'ns-initialize-window-system)
-              (ns-initialize-window-system))))
+
+;; (setq -ns-initialized
+;;       (or (and (boundp '-ns-initialized)
+;;                -ns-initialized)
+;;           (if (functionp 'ns-initialize-window-system)
+;;               (ns-initialize-window-system))))
+
 (setq on-window-system?
       (or (window-system) ;; non-daemon, GUI startup
           ns-initialized ;; daemon, mac startup
