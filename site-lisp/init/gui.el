@@ -2,8 +2,10 @@
 
 (defun max-frame-rows (&optional frame)
   "The number of rows for the frame and still fit on the selected screen."
-  (/ (- (x-display-pixel-height frame) 70)
-     (/ (frame-pixel-height frame) (frame-height frame))))
+  (let* ((monitor-attrs (assoc 'workarea (frame-monitor-attributes frame)))
+         (monitor-width (nth 4 monitor-attrs)))
+    (/ (- monitor-width 70)
+       (/ (frame-pixel-height frame) (frame-height frame)))))
 
 (defun set-frame-double-width ()
   "Doubles the width of the selected frame.
@@ -36,7 +38,7 @@ Adds some extra width for scrollbars"
 
 (setq on-window-system?
       (or (window-system) ;; non-daemon, GUI startup
-          ns-initialized ;; daemon, mac startup
+          ;; ns-initialized ;; daemon, mac startup
           on-x-windows?))
 (setq daemon-mode? (and on-window-system? (not (window-system))))
 
@@ -48,12 +50,14 @@ Adds some extra width for scrollbars"
 ;;     (set-face-attribute 'default nil :font "Liberation Mono-10"))
 
 ;; Adjust GUI window position
-(let* ((top (if on-x-windows? 23 0)) ;; x doesn't compensate for the title bar
-       (left (if on-x-windows? 4 0))) ;; x doesn't compensate for the chrome
-  (add-to-list 'default-frame-alist `(top . ,top))
-  (add-to-list
-   'initial-frame-alist `(left . ,left)))
-(add-to-list 'default-frame-alist '(width . 80))
+(unless desktop-save-mode
+    (let* ((monitor-attrs (assoc 'workarea (frame-monitor-attributes)))
+           (top (nth 2 monitor-attrs))
+           (left (nth 1 monitor-attrs)))
+      (add-to-list 'default-frame-alist `(top . ,top))
+      (add-to-list
+       'initial-frame-alist `(left . ,left)))
+    (add-to-list 'default-frame-alist '(width . 80)))
 
 (add-to-list 'default-frame-alist '(alpha . 90))
 
@@ -64,12 +68,12 @@ Adds some extra width for scrollbars"
                     (set-frame-height frame (max-frame-rows frame)))))
     (add-to-list 'initial-frame-alist `(height . ,(max-frame-rows))))
 
-(if ns-initialized
-    (add-hook 'after-make-frame-functions
-              (lambda (frame)
-                (when (eq (framep frame) 'ns)
-                  (ns-do-applescript "tell application \"Emacs\" to activate")
-                  (set-frame-position frame 0 0)))))
+;; (if ns-initialized
+;;     (add-hook 'after-make-frame-functions
+;;               (lambda (frame)
+;;                 (when (eq (framep frame) 'ns)
+;;                   (ns-do-applescript "tell application \"Emacs\" to activate")
+;;                   (set-frame-position frame 0 0)))))
 
 (when on-window-system?
   (global-set-key (kbd "C-+")
