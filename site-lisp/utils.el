@@ -6,6 +6,7 @@
 
 (defun wget (url)
   "Download file for the given URL, using the same filename."
+  (interactive "MURL: ")
   (url-copy-file url (url-file-nondirectory url)))
 
 (defun unzip-with-jar (zip-file odir)
