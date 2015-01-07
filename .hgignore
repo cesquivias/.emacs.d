@@ -16,3 +16,4 @@ tmp/
 server
 semanticdb/
 srecode-map.el
+.cask
