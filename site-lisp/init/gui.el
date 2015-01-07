@@ -2,10 +2,13 @@
 
 (defun max-frame-rows (&optional frame)
   "The number of rows for the frame and still fit on the selected screen."
-  (let* ((monitor-attrs (assoc 'workarea (frame-monitor-attributes frame)))
-         (monitor-width (nth 4 monitor-attrs)))
-    (/ (- monitor-width 70)
-       (/ (frame-pixel-height frame) (frame-height frame)))))
+  (if (and (= emacs-major-version 24) (< emacs-minor-version 4))
+      (/ (- (x-display-pixel-height frame) 70)
+         (/ (frame-pixel-height frame) (frame-height frame)))
+    (let* ((monitor-attrs (assoc 'workarea (frame-monitor-attributes frame)))
+           (monitor-width (nth 4 monitor-attrs)))
+      (/ (- monitor-width 70)
+         (/ (frame-pixel-height frame) (frame-height frame))))))
 
 (defun set-frame-double-width ()
   "Doubles the width of the selected frame.
@@ -51,13 +54,20 @@ Adds some extra width for scrollbars"
 
 ;; Adjust GUI window position
 (unless desktop-save-mode
+  (if (and (= emacs-major-version 24) (< emacs-minor-version 4))
+      (let* ((top (if on-x-windows? 23 0))
+             (left (if on-x-windows? 4 0)))
+        (add-to-list 'default-frame-alist `(top . ,top))
+        (add-to-list
+         'initial-frame-alist `(left . ,left)))
     (let* ((monitor-attrs (assoc 'workarea (frame-monitor-attributes)))
            (top (nth 2 monitor-attrs))
            (left (nth 1 monitor-attrs)))
       (add-to-list 'default-frame-alist `(top . ,top))
       (add-to-list
-       'initial-frame-alist `(left . ,left)))
-    (add-to-list 'default-frame-alist '(width . 80)))
+       'initial-frame-alist `(left . ,left))))
+  
+  (add-to-list 'default-frame-alist '(width . 80)))
 
 (add-to-list 'default-frame-alist '(alpha . 90))
 
