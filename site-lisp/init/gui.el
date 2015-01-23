@@ -41,7 +41,7 @@ Adds some extra width for scrollbars"
 
 (setq on-window-system?
       (or (window-system) ;; non-daemon, GUI startup
-          ;; ns-initialized ;; daemon, mac startup
+          (boundp 'ns-initialized) ;; daemon, mac startup
           on-x-windows?))
 (setq daemon-mode? (and on-window-system? (not (window-system))))
 

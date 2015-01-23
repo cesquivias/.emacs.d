@@ -6,7 +6,8 @@
 
 (load "init/elpa")
 (require 'package)
-(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+(setq package-archives '(
+                         ;; ("ELPA" . "http://tromey.com/elpa/") 
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")))
