@@ -32,6 +32,7 @@
 (require-or-install 'org)
 (require-or-install 'slime)
 (require-or-install 'slime-repl)
+(require-or-install 'cider)
 (require-or-install 'htmlize)
 (require-or-install 'deft)
 (require-or-install 'android-mode)
