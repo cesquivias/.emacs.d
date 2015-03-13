@@ -30,8 +30,8 @@
 (require-or-install 'js2-mode) ;; js2-mode is screwing up
 (require-or-install 'clojure-mode)
 (require-or-install 'org)
-(require-or-install 'slime)
-(require-or-install 'slime-repl)
+;; (require-or-install 'slime)
+;; (require-or-install 'slime-repl)
 (require-or-install 'htmlize)
 (require-or-install 'deft)
 (require-or-install 'android-mode)
