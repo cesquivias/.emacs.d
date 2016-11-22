@@ -43,6 +43,7 @@
 (require-or-install 'magit)
 (require-or-install 'markdown-mode)
 (require-or-install 'haskell-mode)
+(require-or-install 'groovy-mode)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (>= emacs-major-version 24)
@@ -299,3 +300,24 @@
 
 ;;;; Set eclipse indentation as default for java
 (load "eclipse-indent")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (groovy-mode haskell-mode markdown-mode magit iy-go-to-char geiser android-mode deft htmlize cider slime-repl slime clojure-mode js2-mode yaml-mode paredit))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(diff-added ((t (:foreground "cyan"))))
+ '(diff-changed ((t (:foreground "magenta"))))
+ '(diff-context ((t (:foreground "green"))))
+ '(diff-file-header ((t (:background "black" :foreground "yellow" :weight ultra-bold))))
+ '(diff-header ((t (:background "black" :foreground "yellow"))))
+ '(diff-hunk-header ((t (:background "black" :foreground "gold"))))
+ '(diff-removed ((t (:foreground "red"))))
+ '(which-func ((t (:foreground "dodger blue")))))
