@@ -1,5 +1,11 @@
 ;; Functions
 
+(defun set-max-frame-height (&optional frame)
+  "Sets the frame (or current frame if no frame is provided) to the tallest
+height possible"
+  (interactive)
+  (set-frame-height (selected-frame) (max-frame-rows)))
+
 (defun max-frame-rows (&optional frame)
   "The number of rows for the frame and still fit on the selected screen."
   (if (and (= emacs-major-version 24) (< emacs-minor-version 4))
@@ -86,7 +92,4 @@ Adds some extra width for scrollbars"
 ;;                   (set-frame-position frame 0 0)))))
 
 (when on-window-system?
-  (global-set-key (kbd "C-+")
-                  (lambda ()
-                    (interactive)
-                    (set-frame-height (selected-frame) (max-frame-rows)))))
+  (global-set-key (kbd "C-+") 'set-max-frame-height))
