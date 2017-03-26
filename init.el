@@ -30,10 +30,6 @@
 (require-or-install 'js2-mode) ;; js2-mode is screwing up
 (require-or-install 'clojure-mode)
 (require-or-install 'org)
-;; (require-or-install 'slime)
-;; (require-or-install 'slime-repl)
-(require-or-install 'slime)
-(require-or-install 'slime-repl)
 (require-or-install 'cider)
 (require-or-install 'htmlize)
 (require-or-install 'deft)
@@ -78,6 +74,7 @@
 (recentf-mode)
 
 (setq default-directory "~/") ;; Always start in home directory
+(setq custom-file "~/.emacs.d/site-lisp/custom.el")
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
 (setq blink-cursor-mode t) ;; Don't know why this isn't on on Macs
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups"))) ;; not in dirs
@@ -256,8 +253,20 @@
             (local-set-key (kbd "C-<") 'org-metaleft)
             (local-set-key (kbd "C->") 'org-metaright)))
 
-(setq org-startup-folded 'showall)
-(setq org-goto-auto-isearch nil)
+(setq org-startup-folded 'showall
+      org-goto-auto-isearch nil
+      org-confirm-babel-evaluate nil
+      org-src-fontify-natively t
+      org-src-tab-acts-natively t)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)
+   (js . t)
+   (sh . t)
+   (plantuml . t)
+   (ditaa . t)))
 
 ;;; PlantUML plugin
 (let ((plantuml-jar (expand-file-name "~/.emacs.d/lib/plantuml.jar"))
@@ -282,20 +291,15 @@
       ))
   (setq org-ditaa-jar-path ditaa-jar))
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (python . t)
-   (js . t)
-   (plantuml . t)
-   (ditaa . t)))
-
 ;;; Scheme
 (setq scheme-program-name "racket")
 
 ;;;; GUI
 (load "init/gui")
-(load "init/faces")
 
 ;;;; Set eclipse indentation as default for java
 (load "eclipse-indent")
+
+(add-hook 'kill-emacs-query-functions
+          'custom-prompt-customize-unsaved-options)
+(load custom-file)
