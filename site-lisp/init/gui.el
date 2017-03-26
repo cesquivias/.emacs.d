@@ -43,14 +43,10 @@ Adds some extra width for scrollbars"
       (or (window-system) ;; non-daemon, GUI startup
           (boundp 'ns-initialized) ;; daemon, mac startup
           on-x-windows?))
-(setq daemon-mode? (and on-window-system? (not (window-system))))
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (set-scroll-bar-mode 'right)
-
-;; (if (font-info "Liberation Mono")
-;;     (set-face-attribute 'default nil :font "Liberation Mono-10"))
 
 ;; Adjust GUI window position
 (unless desktop-save-mode
@@ -71,7 +67,7 @@ Adds some extra width for scrollbars"
 
 (add-to-list 'default-frame-alist '(alpha . 90))
 
-(if daemon-mode?
+(if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (if (not (eq (framep frame) 't))
@@ -85,8 +81,8 @@ Adds some extra width for scrollbars"
 ;;                   (ns-do-applescript "tell application \"Emacs\" to activate")
 ;;                   (set-frame-position frame 0 0)))))
 
-(when on-window-system?
-  (global-set-key (kbd "C-+")
-                  (lambda ()
-                    (interactive)
+(global-set-key (kbd "C-+")
+                (lambda ()
+                  (interactive)
+                  (when (display-graphic-p)
                     (set-frame-height (selected-frame) (max-frame-rows)))))
