@@ -39,6 +39,7 @@
 (require-or-install 'magit)
 (require-or-install 'markdown-mode)
 (require-or-install 'haskell-mode)
+(require-or-install 'groovy-mode)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (>= emacs-major-version 24)
@@ -299,7 +300,6 @@
 
 ;;;; Set eclipse indentation as default for java
 (load "eclipse-indent")
-
 (add-hook 'kill-emacs-query-functions
           'custom-prompt-customize-unsaved-options)
 (load custom-file)

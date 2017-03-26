@@ -1,5 +1,12 @@
 ;; Functions
 
+(defun set-max-frame-height (&optional frame)
+  "Sets the frame (or current frame if no frame is provided) to the tallest
+height possible"
+  (interactive)
+  (when (display-graphic-p)
+      (set-frame-height (selected-frame) (max-frame-rows))))
+
 (defun max-frame-rows (&optional frame)
   "The number of rows for the frame and still fit on the selected screen."
   (if (and (= emacs-major-version 24) (< emacs-minor-version 4))
@@ -81,8 +88,4 @@ Adds some extra width for scrollbars"
 ;;                   (ns-do-applescript "tell application \"Emacs\" to activate")
 ;;                   (set-frame-position frame 0 0)))))
 
-(global-set-key (kbd "C-+")
-                (lambda ()
-                  (interactive)
-                  (when (display-graphic-p)
-                    (set-frame-height (selected-frame) (max-frame-rows)))))
+(global-set-key (kbd "C-+") 'set-max-frame-height)
