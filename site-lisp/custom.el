@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (monky yaml-mode slime racket-mode paredit markdown-mode magit js2-mode iy-go-to-char htmlize haskell-mode geiser deft cider android-mode))))
+    (groovy-mode fish-mode monky yaml-mode slime racket-mode paredit markdown-mode magit js2-mode iy-go-to-char htmlize haskell-mode geiser deft cider android-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
