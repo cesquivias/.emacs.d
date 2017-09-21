@@ -5,7 +5,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
+<<<<<<< working copy
     (graphviz-dot-mode fish-mode beginend counsel plantuml-mode flycheck-plantuml ivy dumb-jump matrix-client org ox-reveal yaml-mode racket-mode paredit markdown-mode magit js2-mode iy-go-to-char htmlize haskell-mode geiser deft cider android-mode))))
+=======
+    (ox-reveal groovy-mode fish-mode monky yaml-mode slime racket-mode paredit markdown-mode magit js2-mode iy-go-to-char htmlize haskell-mode geiser deft cider android-mode))))
+>>>>>>> merge rev
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

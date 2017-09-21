@@ -56,7 +56,7 @@ Adds some extra width for scrollbars"
 (set-scroll-bar-mode 'right)
 
 ;; Adjust GUI window position
-(unless desktop-save-mode
+(unless (and desktop-save-mode (not (daemonp)))
   (if (and (= emacs-major-version 24) (< emacs-minor-version 4))
       (let* ((top (if on-x-windows? 23 0))
              (left (if on-x-windows? 4 0)))
