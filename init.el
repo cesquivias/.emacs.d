@@ -9,8 +9,7 @@
 (setq package-archives '(
                          ;; ("ELPA" . "http://tromey.com/elpa/") 
                          ("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")
-                         ("org" . "http://orgmode.org/elpa/")))
+                         ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
 
 ;;;; Local Lisp: Libraries not checked into version control
@@ -253,6 +252,7 @@
             (visual-line-mode t)
             (local-set-key (kbd "C-<") 'org-metaleft)
             (local-set-key (kbd "C->") 'org-metaright)))
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
 
 (setq org-startup-folded 'showall
       org-goto-auto-isearch nil
@@ -267,7 +267,8 @@
    (js . t)
    (sh . t)
    (plantuml . t)
-   (ditaa . t)))
+   (ditaa . t)
+   (dot . t)))
 
 ;;; PlantUML plugin
 (let ((plantuml-jar (expand-file-name "~/.emacs.d/lib/plantuml.jar"))
