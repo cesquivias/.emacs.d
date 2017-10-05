@@ -61,6 +61,7 @@
 (set-keyboard-coding-system 'utf-8-unix)
 (setq-default buffer-file-coding-system 'utf-8-unix)
 (global-font-lock-mode t)
+(ffap-bindings)
 
 ;; Saving Emacs state between startups
 (setq desktop-dirname (expand-file-name "~/.emacs.d/desktop/")
