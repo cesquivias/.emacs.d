@@ -10,6 +10,7 @@
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c l") 'insert-lambda)
+(global-set-key (kbd "C-c C-f") 'find-file-at-point)
 
 ;; Windmove
 (global-set-key (kbd "M-P") 'windmove-up)
