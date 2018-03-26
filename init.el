@@ -41,6 +41,7 @@
 (require-or-install 'groovy-mode)
 (require-or-install 'fish-mode)
 (require-or-install 'org-reveal)
+(require-or-install 'ace-window)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 (if (>= emacs-major-version 24)
