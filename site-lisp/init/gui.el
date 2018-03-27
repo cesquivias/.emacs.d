@@ -1,4 +1,6 @@
 ;; Functions
+(setq frame-alpha 95
+      "The default alpha level for frames")
 
 (defun set-max-frame-height (&optional frame)
   "Sets the frame (or current frame if no frame is provided) to the tallest
@@ -72,7 +74,7 @@ Adds some extra width for scrollbars"
   
   (add-to-list 'default-frame-alist '(width . 80)))
 
-(add-to-list 'default-frame-alist '(alpha . 90))
+(add-to-list 'default-frame-alist `(alpha . ,frame-alpha))
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
