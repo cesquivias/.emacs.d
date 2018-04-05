@@ -1,6 +1,6 @@
 ;; Functions
-(setq frame-alpha 95
-      "The default alpha level for frames")
+(defvar frame-alpha 95
+  "The default alpha level for frames")
 
 (defun set-max-frame-height (&optional frame)
   "Sets the frame (or current frame if no frame is provided) to the tallest
