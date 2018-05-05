@@ -116,6 +116,7 @@
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use shorter y/n prompt
 (put 'dired-find-alternate-file 'disabled nil) ;; Enable 'a' shortcut in dired
 (put 'set-goal-column 'disabled nil) ;; Enable C-x C-n
+(put 'narrow-to-region 'disabled nil) ;; Enable C-x n n
 (if (fboundp 'global-subword-mode)
     (global-subword-mode t)) ;; camelCase names are split into words
 
