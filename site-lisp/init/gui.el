@@ -1,6 +1,8 @@
 ;; Functions
-(defvar frame-alpha 95
-  "The default alpha level for frames")
+(defcustom frame-alpha 95
+  "The default alpha level for frames"
+  :set (lambda (sym val)
+         (add-to-list 'default-frame-alist `(alpha . ,val))))
 
 (defun set-max-frame-height (&optional frame)
   "Sets the frame (or current frame if no frame is provided) to the tallest
@@ -69,12 +71,9 @@ Adds some extra width for scrollbars"
            (top (nth 2 monitor-attrs))
            (left (nth 1 monitor-attrs)))
       (add-to-list 'default-frame-alist `(top . ,top))
-      (add-to-list
-       'initial-frame-alist `(left . ,left))))
+      (add-to-list 'initial-frame-alist `(left . ,left))))
   
   (add-to-list 'default-frame-alist '(width . 80)))
-
-(add-to-list 'default-frame-alist `(alpha . ,frame-alpha))
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
