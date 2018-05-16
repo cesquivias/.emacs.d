@@ -6,11 +6,10 @@
 
 (load "init/elpa")
 (require 'package)
-(setq package-archives '(
-                         ;; ("ELPA" . "http://tromey.com/elpa/") 
-                         ("gnu" . "http://elpa.gnu.org/packages/")
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")))
-(package-initialize)
+(unless package-archive-contents
+  (package-initialize))
 
 ;;;; Local Lisp: Libraries not checked into version control
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
