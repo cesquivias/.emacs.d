@@ -39,7 +39,7 @@
 (require-or-install 'haskell-mode)
 (require-or-install 'groovy-mode)
 (require-or-install 'fish-mode)
-(require-or-install 'ox-reveal)
+;; (require-or-install 'ox-reveal) melpa library broken
 (require-or-install 'ace-window)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
