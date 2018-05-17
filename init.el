@@ -10,6 +10,9 @@
                          ("melpa" . "http://melpa.org/packages/")))
 (unless package-archive-contents
   (package-initialize))
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
 
 ;;;; Local Lisp: Libraries not checked into version control
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
@@ -23,7 +26,6 @@
 (require 'whitespace)
 
 ;;;; Platform Dependent
-(require-or-install 'paredit)
 (require-or-install 'yaml-mode)
 (require-or-install 'js2-mode) ;; js2-mode is screwing up
 (require-or-install 'clojure-mode)
@@ -43,6 +45,14 @@
 (require-or-install 'ace-window)
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
+
+(use-package paredit
+    :ensure t
+    :defer t
+    :hook ((clojure-mode . paredit-mode)
+	   (emacs-lisp-mode . paredit-mode)
+	   (scheme-mode . paredit-mode)))
+
 (if (>= emacs-major-version 24)
     (load-theme 'wombat t)
   (require-or-install 'color-theme)
@@ -160,19 +170,9 @@
 
 (add-hook 'clojure-mode-hook
           (lambda ()
-            (paredit-mode +1)
             (local-set-key (kbd "C-x E") 'slime-eval-buffer)))
 (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
-
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (paredit-mode +1)))
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-
-(add-hook 'scheme-mode-hook
-          (lambda ()
-            (paredit-mode +1)))
-
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 (eval-after-load "eshell"
