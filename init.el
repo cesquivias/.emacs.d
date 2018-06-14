@@ -8,11 +8,9 @@
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")))
+(package-initialize)
 (unless package-archive-contents
-  (package-initialize))
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
+  (package-refresh-contents))
 
 ;;;; Local Lisp: Libraries not checked into version control
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
@@ -46,6 +44,10 @@
 ;; (require-or-install 'yasnippet-bundle)
 ;; (require-or-install 'yas-jit)
 
+(unless (package-installed-p 'use-package)
+  (package-initialize)
+  (package-install 'use-package))
+(require 'use-package)
 (use-package paredit
     :ensure t
     :defer t
@@ -268,7 +270,7 @@
  '((emacs-lisp . t)
    (python . t)
    (js . t)
-   (sh . t)
+   (shell . t)
    (plantuml . t)
    (ditaa . t)
    (dot . t)))
