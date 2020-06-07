@@ -57,7 +57,9 @@ Adds some extra width for scrollbars"
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(set-scroll-bar-mode 'right)
+
+(when on-window-system?
+  (set-scroll-bar-mode 'right))
 
 ;; Adjust GUI window position
 (unless (and desktop-save-mode (not (daemonp)))

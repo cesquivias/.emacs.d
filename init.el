@@ -268,7 +268,7 @@
  '((emacs-lisp . t)
    (python . t)
    (js . t)
-   (sh . t)
+   (shell . t)
    (plantuml . t)
    (ditaa . t)
    (dot . t)))
