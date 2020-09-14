@@ -55,15 +55,15 @@
 	   (scheme-mode . paredit-mode)))
 
 (use-package deft
+  :ensure t
   :bind ("C-c d" . deft)
   :init (setq deft-directory "~/org/deft/"
               deft-text-mode 'org-mode
               deft-extensions '("org")))
 
-(if (>= emacs-major-version 24)
-    (load-theme 'wombat t)
-  (require-or-install 'color-theme)
-  (color-theme-ld-dark))
+(use-package monokai-theme
+  :ensure t
+  :config (load-theme 'monokai t))
 
 ;;; Start Server When not in daemon mode
 (unless (daemonp)
