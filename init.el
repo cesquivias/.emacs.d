@@ -54,6 +54,10 @@
 	   (emacs-lisp-mode . paredit-mode)
 	   (scheme-mode . paredit-mode)))
 
+(use-package dumb-jump
+  :ensure t
+  :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
 (use-package deft
   :ensure t
   :bind ("C-c d" . deft)
