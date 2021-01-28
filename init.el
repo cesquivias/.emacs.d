@@ -73,6 +73,15 @@
   :ensure t
   :config (load-theme 'monokai t))
 
+(use-package unicode-fonts
+   :ensure t
+   :config
+    (unicode-fonts-setup))
+
+(use-package dumb-jump
+  :ensure t
+  :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
 ;;; Start Server When not in daemon mode
 (unless (daemonp)
   (server-start))
