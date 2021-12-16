@@ -4,10 +4,13 @@
 (require 'dos)
 (require 'django-html-mode)
 
+(if (and (= emacs-major-version 26) (<= emacs-minor-version 2))
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+
 (load "init/elpa")
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -47,6 +50,7 @@
   (package-initialize)
   (package-install 'use-package))
 (require 'use-package)
+
 (use-package paredit
     :ensure t
     :defer t
