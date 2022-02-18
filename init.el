@@ -82,6 +82,9 @@
   :ensure t
   :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
+(use-package rust-mode
+  :ensure t)
+
 ;;; Start Server When not in daemon mode
 (unless (daemonp)
   (server-start))
