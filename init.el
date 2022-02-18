@@ -1,6 +1,7 @@
+(setq emacs.d (expand-file-name user-emacs-directory))
 
 ;;;; Site-Lisp: checked-in directory with libraries not available on ELPA
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp"))
+(add-to-list 'load-path (concat emacs.d "site-lisp"))
 (require 'dos)
 (require 'django-html-mode)
 
@@ -16,8 +17,8 @@
   (package-refresh-contents))
 
 ;;;; Local Lisp: Libraries not checked into version control
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/local-lisp"))
-(let ((local-init "~/.emacs.d/local-lisp/init.el"))
+(add-to-list 'load-path (concat emacs.d "local-lisp"))
+(let ((local-init (concat emacs.d "local-lisp/init.el")))
   (if (file-exists-p local-init)
       (load local-init)))
 
@@ -100,7 +101,7 @@
 (global-font-lock-mode t)
 
 ;; Saving Emacs state between startups
-(setq desktop-dirname (expand-file-name "~/.emacs.d/desktop/")
+(setq desktop-dirname (concat emacs.d "desktop/")
       desktop-path (list desktop-dirname)
       desktop-base-file-name "emacs-desktop")
 (make-directory desktop-dirname t)
@@ -113,10 +114,10 @@
 (recentf-mode)
 
 (setq default-directory "~/") ;; Always start in home directory
-(setq custom-file "~/.emacs.d/site-lisp/custom.el")
+(setq custom-file (concat emacs.d "site-lisp/custom.el"))
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
 (setq blink-cursor-mode t) ;; Don't know why this isn't on on Macs
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups"))) ;; not in dirs
+(setq backup-directory-alist `(("." . (concat emacs.d "backups")))) ;; not in dirs
 (setq backup-by-copying t)
 (setq transient-mark-mode t) ;; default in emacs23
 (setq column-number-mode t) ;; show columns next to line numbers
@@ -234,11 +235,11 @@
 
 ;;;; Custom variables
 (setq lib-directory (file-name-as-directory
-                     (expand-file-name "~/.emacs.d/lib")))
+                     (concat emacs.d "lib")))
 (make-directory lib-directory t)
 
 (setq temp-directory (file-name-as-directory
-                      (expand-file-name "~/.emacs.d/tmp")))
+                      (concat emacs.d "tmp")))
 (if (file-exists-p temp-directory)
     (delete-directory temp-directory t))
 (make-directory temp-directory)
@@ -258,7 +259,7 @@
 (set-face-background 'rst-level-6 "#000")
 
 ;;;; Eshell
-(setq eshell-directory-name "~/.emacs.d/eshell/")
+(setq eshell-directory-name (concat emacs.d "eshell/"))
 
 ;;;; org-mode
 (add-hook 'org-mode-hook
@@ -285,7 +286,7 @@
    (dot . t)))
 
 ;;; PlantUML plugin
-(let ((plantuml-jar (expand-file-name "~/.emacs.d/lib/plantuml.jar"))
+(let ((plantuml-jar (concat emacs.d "lib/plantuml.jar"))
       (plantuml-url "http://sourceforge.net/projects/plantuml/files/plantuml.jar/download"))
   (unless (file-exists-p plantuml-jar)
     (url-copy-file plantuml-url plantuml-jar))
@@ -308,17 +309,16 @@
   (setq org-ditaa-jar-path ditaa-jar))
 
 ;;; Download emacs C source code
-(let ((c-src-dir (expand-file-name "~/.emacs.d/emacs-c-src")))
+(let ((c-src-dir (concat emacs.d "emacs-c-src")))
   (unless (file-exists-p c-src-dir)
     (let ((emacs-src-url (concat "http://ftp.gnu.org/gnu/emacs/emacs-"
                                  emacs-version ".tar.gz"))
-          (tar-file (expand-file-name "~/.emacs.d/emacs-src.tar.gz"))
+          (tar-file (concat emacs.d "emacs-src.tar.gz"))
           (tar-src-path (concat "emacs-" emacs-version "/src")))
       (url-copy-file emacs-src-url tar-file t)
       (untar tar-file tar-src-path)
-      (rename-file (expand-file-name (concat "~/.emacs.d/" tar-src-path))
-                   (expand-file-name c-src-dir))
-      (delete-directory (expand-file-name (concat "~/.emacs.d/emacs-" emacs-version)))
+      (rename-file (concat emacs.d tar-src-path) c-src-dir)
+      (delete-directory (concat emacs.d "emacs-" emacs-version))
       (delete-file tar-file)))
   (setq find-function-C-source-directory c-src-dir))
 
