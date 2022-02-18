@@ -16,3 +16,4 @@ semanticdb/
 srecode-map.el
 .cask
 recentf
+emacs-c-src/

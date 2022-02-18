@@ -29,6 +29,12 @@
       (unzip-with-jar zip-file odir)
     (shell-command-if-exists "unzip" (concat "-d " odir " " zip-file))))
 
+(defun untar (tar-file &optional file)
+  "Untar the given file to the current working directory. Specify `file' to only extract a specific file/directory."
+  (let* ((args (concat "-xf " tar-file))
+         (args (if file (concat args " " file) args)))
+    (shell-command-if-exists "tar" args)))
+
 (defun insert-lambda ()
   "Insert a λ character at point."
   (interactive)

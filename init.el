@@ -307,6 +307,21 @@
       ))
   (setq org-ditaa-jar-path ditaa-jar))
 
+;;; Download emacs C source code
+(let ((c-src-dir (expand-file-name "~/.emacs.d/emacs-c-src")))
+  (unless (file-exists-p c-src-dir)
+    (let ((emacs-src-url (concat "http://ftp.gnu.org/gnu/emacs/emacs-"
+                                 emacs-version ".tar.gz"))
+          (tar-file (expand-file-name "~/.emacs.d/emacs-src.tar.gz"))
+          (tar-src-path (concat "emacs-" emacs-version "/src")))
+      (url-copy-file emacs-src-url tar-file t)
+      (untar tar-file tar-src-path)
+      (rename-file (expand-file-name (concat "~/.emacs.d/" tar-src-path))
+                   (expand-file-name c-src-dir))
+      (delete-directory (expand-file-name (concat "~/.emacs.d/emacs-" emacs-version)))
+      (delete-file tar-file)))
+  (setq find-function-C-source-directory c-src-dir))
+
 ;;; Scheme
 (setq scheme-program-name "racket")
 
