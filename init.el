@@ -117,7 +117,7 @@
 (setq custom-file (concat emacs.d "site-lisp/custom.el"))
 (setq frame-title-format `("%b@" ,(system-name))) ;; buffer-name@hostname
 (setq blink-cursor-mode t) ;; Don't know why this isn't on on Macs
-(setq backup-directory-alist `(("." . (concat emacs.d "backups")))) ;; not in dirs
+(setq backup-directory-alist `(("." . ,(concat emacs.d "backups")))) ;; not in dirs
 (setq backup-by-copying t)
 (setq transient-mark-mode t) ;; default in emacs23
 (setq column-number-mode t) ;; show columns next to line numbers
