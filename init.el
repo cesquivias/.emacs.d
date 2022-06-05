@@ -86,7 +86,7 @@
 (use-package rust-mode
   :ensure t)
 
-;;; Start Server When not in daemon mode
+;;; Start server when not in daemon mode
 (unless (daemonp)
   (server-start))
 
@@ -99,6 +99,9 @@
 (set-keyboard-coding-system 'utf-8-unix)
 (setq-default buffer-file-coding-system 'utf-8-unix)
 (global-font-lock-mode t)
+
+;; Use hippie-expand
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;; Saving Emacs state between startups
 (setq desktop-dirname (concat emacs.d "desktop/")
