@@ -86,6 +86,9 @@
 (use-package rust-mode
   :ensure t)
 
+(use-package nasm-mode
+  :ensure t)
+
 ;;; Start server when not in daemon mode
 (unless (daemonp)
   (server-start))
@@ -180,6 +183,7 @@
 (add-to-list 'auto-mode-alist '("\\.just$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.jie$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.asm$" . nasm-mode))
 
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (add-hook 'text-mode-hook
