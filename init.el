@@ -30,7 +30,6 @@
 (require-or-install 'org)
 (require-or-install 'cider)
 (require-or-install 'htmlize)
-(require-or-install 'deft)
 (require-or-install 'android-mode)
 (require-or-install 'geiser)
 (require-or-install 'iy-go-to-char)
@@ -54,6 +53,12 @@
     :hook ((clojure-mode . paredit-mode)
 	   (emacs-lisp-mode . paredit-mode)
 	   (scheme-mode . paredit-mode)))
+
+(use-package deft
+  :bind ("C-c d" . deft)
+  :init (setq deft-directory "~/org/deft/"
+              deft-text-mode 'org-mode
+              deft-extensions '("org")))
 
 (if (>= emacs-major-version 24)
     (load-theme 'wombat t)
@@ -243,13 +248,6 @@
 
 ;;;; Eshell
 (setq eshell-directory-name "~/.emacs.d/eshell/")
-
-;;;; Deft
-(setq deft-extension "org")
-(setq deft-directory "~/org/deft/")
-(make-directory deft-directory 'parents) ;; make sure it exists
-(setq deft-text-mode 'org-mode)
-(global-set-key (kbd "C-c d") 'deft)
 
 ;;;; org-mode
 (add-hook 'org-mode-hook
