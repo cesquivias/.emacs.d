@@ -173,6 +173,7 @@
 (add-to-list 'auto-mode-alist '("\\.jie$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 (add-hook 'text-mode-hook
           (lambda ()
             (setq tab-width 4)))
