@@ -17,3 +17,7 @@ srecode-map.el
 .cask
 recentf
 emacs-c-src/
+/eln-cache/
+/eshell/history
+/transient/
+/var/
