@@ -89,6 +89,17 @@
 (use-package nasm-mode
   :ensure t)
 
+(use-package cider
+  :ensure t)
+
+(use-package clj-refactor
+  :ensure t
+  :init
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (clj-refactor-mode t)
+              (cljr-add-keybindings-with-prefix "C-c r"))))
+
 ;;; Start server when not in daemon mode
 (unless (daemonp)
   (server-start))
