@@ -8,10 +8,8 @@
 (if (and (= emacs-major-version 26) (<= emacs-minor-version 2))
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
-(load "init/elpa")
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-
 (package-initialize)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -21,37 +19,25 @@
   (if (file-exists-p local-init)
       (load local-init)))
 
-;;;; Built-In
+;;;; Included libraries
 (require 'uniquify)
 (require 'rst)
 (require 'whitespace)
 
-;;;; Platform Dependent
-(require-or-install 'yaml-mode)
-(require-or-install 'js2-mode) ;; js2-mode is screwing up
-(require-or-install 'clojure-mode)
-(require-or-install 'org)
-(require-or-install 'cider)
-(require-or-install 'htmlize)
-(require-or-install 'android-mode)
-(require-or-install 'geiser)
-(require-or-install 'iy-go-to-char)
-(require-or-install 'magit)
-(require-or-install 'markdown-mode)
-(require-or-install 'haskell-mode)
-(require-or-install 'groovy-mode)
-(require-or-install 'fish-mode)
-;; (require-or-install 'ox-reveal) melpa library broken
-(require-or-install 'ace-window)
-;; (require-or-install 'yasnippet-bundle)
-;; (require-or-install 'yas-jit)
+;;; Package libraries
 
 (unless (package-installed-p 'use-package)
   (package-initialize)
   (package-install 'use-package))
 (require 'use-package)
 
+(use-package ace-window
+  :ensure t)
+
 (use-package cider
+  :ensure t)
+
+(use-package clojure-mode
   :ensure t)
 
 (use-package clj-refactor
@@ -73,6 +59,30 @@
   :ensure t
   :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
+(use-package fish-mode
+  :ensure t)
+
+(use-package geiser
+  :ensure t)
+
+(use-package groovy-mode
+  :ensure t)
+
+(use-package haskell-mode
+  :ensure t)
+
+(use-package htmlize
+  :ensure t)
+
+(use-package js2-mode
+  :ensure t)
+
+(use-package magit
+  :ensure t)
+
+(use-package markdown-mode
+  :ensure t)
+
 (use-package monokai-theme
   :ensure t
   :config (load-theme 'monokai t))
@@ -80,12 +90,21 @@
 (use-package nasm-mode
   :ensure t)
 
+(use-package org
+  :ensure t)
+
+(use-package org-contrib
+  :ensure t)
+
+(use-package ox-reveal
+  :ensure t)
+
 (use-package paredit
-    :ensure t
-    :defer t
-    :hook ((clojure-mode . paredit-mode)
-	   (emacs-lisp-mode . paredit-mode)
-	   (scheme-mode . paredit-mode)))
+  :ensure t
+  :defer t
+  :hook ((clojure-mode . paredit-mode)
+	     (emacs-lisp-mode . paredit-mode)
+	     (scheme-mode . paredit-mode)))
 
 (use-package rust-mode
   :ensure t)
@@ -94,6 +113,9 @@
    :ensure t
    :config
     (unicode-fonts-setup))
+
+(use-package yaml-mode
+  :ensure t)
 
 ;;; Start server when not in daemon mode
 (unless (daemonp)
