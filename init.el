@@ -51,43 +51,6 @@
   (package-install 'use-package))
 (require 'use-package)
 
-(use-package paredit
-    :ensure t
-    :defer t
-    :hook ((clojure-mode . paredit-mode)
-	   (emacs-lisp-mode . paredit-mode)
-	   (scheme-mode . paredit-mode)))
-
-(use-package dumb-jump
-  :ensure t
-  :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
-
-(use-package deft
-  :ensure t
-  :bind ("C-c d" . deft)
-  :init (setq deft-directory "~/org/deft/"
-              deft-text-mode 'org-mode
-              deft-extensions '("org")))
-
-(use-package monokai-theme
-  :ensure t
-  :config (load-theme 'monokai t))
-
-(use-package unicode-fonts
-   :ensure t
-   :config
-    (unicode-fonts-setup))
-
-(use-package dumb-jump
-  :ensure t
-  :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
-
-(use-package rust-mode
-  :ensure t)
-
-(use-package nasm-mode
-  :ensure t)
-
 (use-package cider
   :ensure t)
 
@@ -98,6 +61,39 @@
             (lambda ()
               (clj-refactor-mode t)
               (cljr-add-keybindings-with-prefix "C-c r"))))
+
+(use-package deft
+  :ensure t
+  :bind ("C-c d" . deft)
+  :init (setq deft-directory "~/org/deft/"
+              deft-text-mode 'org-mode
+              deft-extensions '("org")))
+
+(use-package dumb-jump
+  :ensure t
+  :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
+(use-package monokai-theme
+  :ensure t
+  :config (load-theme 'monokai t))
+
+(use-package nasm-mode
+  :ensure t)
+
+(use-package paredit
+    :ensure t
+    :defer t
+    :hook ((clojure-mode . paredit-mode)
+	   (emacs-lisp-mode . paredit-mode)
+	   (scheme-mode . paredit-mode)))
+
+(use-package rust-mode
+  :ensure t)
+
+(use-package unicode-fonts
+   :ensure t
+   :config
+    (unicode-fonts-setup))
 
 ;;; Start server when not in daemon mode
 (unless (daemonp)
