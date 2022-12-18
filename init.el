@@ -37,16 +37,17 @@
 (use-package cider
   :ensure t)
 
-(use-package clojure-mode
-  :ensure t)
-
 (use-package clj-refactor
   :ensure t
   :init
   (add-hook 'clojure-mode-hook
             (lambda ()
               (clj-refactor-mode t)
-              (cljr-add-keybindings-with-prefix "C-c r"))))
+              (cljr-add-keybindings-with-prefix "C-c r")))
+  :requires clojure-mode)
+
+(use-package clojure-mode
+  :ensure t)
 
 (use-package deft
   :ensure t
@@ -95,6 +96,9 @@
 
 (use-package org-contrib
   :ensure t)
+
+(use-package ox-groff
+  :requires org-contrib)
 
 (use-package ox-reveal
   :ensure t)

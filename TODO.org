@@ -1,0 +1,4 @@
+#+TITLE: Changes to be made to .emacs.d
+
+* Check if ~find-function-C-source-directory~ is set before downloading Emacs source
+Before checking if ~emacs-c-src~ exists, check if ~find-function-C-source-directory~ is already set
