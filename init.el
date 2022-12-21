@@ -352,19 +352,22 @@
       ))
   (setq org-ditaa-jar-path ditaa-jar))
 
-;;; Download emacs C source code
-(let ((c-src-dir (concat emacs.d "emacs-c-src")))
-  (unless (file-exists-p c-src-dir)
-    (let ((emacs-src-url (concat "http://ftp.gnu.org/gnu/emacs/emacs-"
-                                 emacs-version ".tar.gz"))
-          (tar-file (concat emacs.d "emacs-src.tar.gz"))
-          (tar-src-path (concat "emacs-" emacs-version "/src")))
-      (url-copy-file emacs-src-url tar-file t)
-      (untar tar-file tar-src-path)
-      (rename-file (concat emacs.d tar-src-path) c-src-dir)
-      (delete-directory (concat emacs.d "emacs-" emacs-version))
-      (delete-file tar-file)))
-  (setq find-function-C-source-directory c-src-dir))
+(defun download-emacs-c-src ()
+  "Download Emacs C source code into .emacs.d directory and set
+`find-function-C-source-directory' variable to downloaded directory."
+  (interactive)
+  (let ((c-src-dir (concat emacs.d "emacs-c-src")))
+    (unless (file-exists-p c-src-dir)
+      (let ((emacs-src-url (concat "http://ftp.gnu.org/gnu/emacs/emacs-"
+                                   emacs-version ".tar.gz"))
+            (tar-file (concat emacs.d "emacs-src.tar.gz"))
+            (tar-src-path (concat "emacs-" emacs-version "/src")))
+        (url-copy-file emacs-src-url tar-file t)
+        (untar tar-file tar-src-path)
+        (rename-file (concat emacs.d tar-src-path) c-src-dir)
+        (delete-directory (concat emacs.d "emacs-" emacs-version))
+        (delete-file tar-file)))
+    (setq find-function-C-source-directory c-src-dir)))
 
 ;;; Scheme
 (setq scheme-program-name "racket")
