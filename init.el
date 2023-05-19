@@ -365,7 +365,7 @@
         (url-copy-file emacs-src-url tar-file t)
         (untar tar-file tar-src-path)
         (rename-file (concat emacs.d tar-src-path) c-src-dir)
-        (delete-directory (concat emacs.d "emacs-" emacs-version))
+        (delete-directory (concat emacs.d "emacs-" emacs-version) t)
         (delete-file tar-file)))
     (setq find-function-C-source-directory c-src-dir)))
 
