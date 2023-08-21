@@ -372,6 +372,9 @@
 ;;; Scheme
 (setq scheme-program-name "racket")
 
+;;; Tree-Sitter & Combobulate
+(load "init/tree-sitter")
+
 ;;;; GUI
 (load "init/gui")
 
