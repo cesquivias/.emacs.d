@@ -375,6 +375,9 @@
 ;;; Tree-Sitter & Combobulate
 (load "init/tree-sitter")
 
+;;; LSP
+(load "init/lsp-python")
+
 ;;;; GUI
 (load "init/gui")
 
