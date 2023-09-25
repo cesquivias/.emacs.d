@@ -390,6 +390,8 @@
 
 ;;; LSP
 (load "init/lsp-python")
+(global-set-key (kbd "C-c f") #'flymake-goto-next-error)
+(global-set-key (kbd "C-c b") #'flymake-goto-prev-error)
 
 ;;;; GUI
 (load "init/gui")
