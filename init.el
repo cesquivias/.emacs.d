@@ -217,10 +217,10 @@
 (tooltip-mode -1)
 (setq tooltip-use-echo-area t)
 
-(setq fill-column 80)
+(setq-default fill-column 80)
 (when (or (> emacs-major-version 28)
           (and (>= emacs-major-version 28) (>= emacs-minor-version 1)))
-  (global-display-fill-column-indicator-mode t))
+  (global-display-fill-column-indicator-mode))
 
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
