@@ -7,7 +7,6 @@
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c p") 'package-list-packages)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
-(global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c l") 'insert-lambda)
 (global-set-key (kbd "C-c C-f") 'find-file-at-point)
 
@@ -21,3 +20,6 @@
 
 (global-set-key (kbd "C-c 2") 'set-frame-double-width)
 (global-set-key (kbd "C-c 3") 'double-frame-right)
+
+(global-set-key (kbd "C-M-<") 'flymake-goto-prev-error)
+(global-set-key (kbd "C-M->") 'flymake-goto-next-error)

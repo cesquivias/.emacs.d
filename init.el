@@ -390,8 +390,6 @@
 
 ;;; LSP
 (load "init/lsp-python")
-(global-set-key (kbd "C-c f") #'flymake-goto-next-error)
-(global-set-key (kbd "C-c b") #'flymake-goto-prev-error)
 (setq gc-cons-threshold 100000000) ; increase GC threshold to reduce pauses
 (setq read-process-output-max (* 1024 1024)) ;; increase read amount to reduce LSP delay
 
