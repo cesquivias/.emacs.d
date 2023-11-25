@@ -48,7 +48,7 @@
     ;; Note that you may have to restart Emacs for this to take effect!
     (setq combobulate-key-prefix "C-c o")
 
-    :init
+    :config
     (unbind-key (kbd "M-N") combobulate-key-map)
     (unbind-key (kbd "M-P") combobulate-key-map)
 
