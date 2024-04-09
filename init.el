@@ -116,10 +116,29 @@
 (use-package unicode-fonts
    :ensure t
    :config
-    (unicode-fonts-setup))
+   (unicode-fonts-setup))
 
 (use-package yaml-mode
   :ensure t)
+
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1)
+  (setq yas-snippet-dirs (list (concat emacs.d "snippets"))))
+
+(use-package asm-mode
+  :config
+  ;;; Replace asm-colon fn so point doesn't move. Allows for yasnippet expansion
+  (defun asm-colon ()
+    "Insert a colon; if it follows a label, delete the label's indentation."
+    (interactive)
+    (let ((labelp nil))
+      (save-excursion
+        (skip-syntax-backward "w_")
+        (skip-syntax-backward " ")
+        (if (setq labelp (bolp)) (delete-horizontal-space)))
+      (call-interactively 'self-insert-command))))
 
 ;;; Start server when not in daemon mode
 (unless (daemonp)
