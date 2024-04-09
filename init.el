@@ -125,10 +125,11 @@
   :ensure t
   :config
   (yas-global-mode 1)
-  (setq yas-snippet-dirs (list (concat emacs.d "snippets"))))
+  (setq yas-snippet-dirs `(,(concat emacs.d "snippets"))))
 
 (use-package asm-mode
   :config
+  (set-variable asm-comment-char ?/)
   ;;; Replace asm-colon fn so point doesn't move. Allows for yasnippet expansion
   (defun asm-colon ()
     "Insert a colon; if it follows a label, delete the label's indentation."
