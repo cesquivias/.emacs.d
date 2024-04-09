@@ -141,10 +141,6 @@
         (if (setq labelp (bolp)) (delete-horizontal-space)))
       (call-interactively 'self-insert-command))))
 
-;;; Start server when not in daemon mode
-(unless (daemonp)
-  (server-start))
-
 (iswitchb-mode t)
 (show-paren-mode t)
 (which-function-mode t)
