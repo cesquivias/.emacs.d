@@ -51,6 +51,7 @@
     :config
     (unbind-key (kbd "M-N") combobulate-key-map)
     (unbind-key (kbd "M-P") combobulate-key-map)
+    (unbind-key (kbd "M-h") combobulate-key-map)
 
     ;; Optional, but recommended.
     ;;
