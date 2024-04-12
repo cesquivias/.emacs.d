@@ -39,11 +39,9 @@
 
 (use-package clj-refactor
   :ensure t
-  :init
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (clj-refactor-mode t)
-              (cljr-add-keybindings-with-prefix "C-c r")))
+  :defer t
+  :hook clj-refactor-mode
+  :config (cljr-add-keybindings-with-prefix "C-c r")
   :requires clojure-mode)
 
 (use-package clojure-mode
@@ -58,6 +56,7 @@
 
 (use-package dumb-jump
   :ensure t
+  :if (executable-find "grep")
   :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package fish-mode
@@ -79,6 +78,7 @@
   :ensure t)
 
 (use-package magit
+  :if (executable-find "git")
   :ensure t)
 
 (use-package markdown-mode
@@ -105,7 +105,6 @@
 
 (use-package paredit
   :ensure t
-  :defer t
   :hook ((clojure-mode . paredit-mode)
 	     (emacs-lisp-mode . paredit-mode)
 	     (scheme-mode . paredit-mode)))
@@ -128,8 +127,9 @@
   (setq yas-snippet-dirs `(,(concat emacs.d "snippets"))))
 
 (use-package asm-mode
+  :defer t
   :config
-  (set-variable asm-comment-char ?/)
+  (setq asm-comment-char ?/)
   ;;; Replace asm-colon fn so point doesn't move. Allows for yasnippet expansion
   (defun asm-colon ()
     "Insert a colon; if it follows a label, delete the label's indentation."
