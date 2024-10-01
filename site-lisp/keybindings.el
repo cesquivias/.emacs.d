@@ -8,7 +8,9 @@
 (global-set-key (kbd "C-c p") 'package-list-packages)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c l") 'insert-lambda)
-(global-set-key (kbd "C-c C-f") 'find-file-at-point)
+(global-set-key (kbd "C-x M-f") 'find-file-at-point)
+(global-set-key (kbd "M-n") 'duplicate-dwim)
+
 
 ;; Windmove
 (global-set-key (kbd "M-P") 'windmove-up)
