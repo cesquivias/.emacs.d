@@ -9,8 +9,14 @@
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c l") 'insert-lambda)
 (global-set-key (kbd "C-x M-f") 'find-file-at-point)
-(global-set-key (kbd "M-n") 'duplicate-dwim)
+(if (version<= "29.1" emacs-version)
+    (global-set-key (kbd "M-n") 'duplicate-dwim))
 
+(global-set-key (kbd "C-c C-c") (lambda (arg)
+                                  (interactive "P")
+                                  (if arg
+                                      (call-interactively 'compile)
+                                    (recompile))))
 
 ;; Windmove
 (global-set-key (kbd "M-P") 'windmove-up)
@@ -25,3 +31,5 @@
 
 (global-set-key (kbd "C-M-<") 'flymake-goto-prev-error)
 (global-set-key (kbd "C-M->") 'flymake-goto-next-error)
+
+(define-key c-mode-map (kbd "C-c C-c") nil)
