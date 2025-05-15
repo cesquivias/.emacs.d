@@ -123,8 +123,25 @@
 (use-package yasnippet
   :ensure t
   :config
-  (yas-global-mode 1)
-  (setq yas-snippet-dirs `(,(concat emacs.d "snippets"))))
+  (setq yas-snippet-dirs `(,(concat emacs.d "snippets")))
+  (yas-global-mode 1))
+
+(use-package autoinsert
+  :init
+  (setq auto-insert-directory (concat emacs.d "auto-insert"))
+  :config
+  (add-to-list 'auto-insert-alist (cons ("\\.s" . "ARM64 ASM") nil "    .text
+
+    .global " '(file-name-base (buffer-file-name)) "
+" '(file-name-base (buffer-file-name)) ":
+    stp x29, x30, [sp, #-16]!
+    stp x27, x28, [sp, #-16]!
+
+    ldp x27, x28, [sp], #16
+    ldp x29, x30, [sp], #16
+    ret
+"))
+  (add-to-list 'auto-insert-alist (cons "Makefile" "Makefile")))
 
 (use-package asm-mode
   :defer t
