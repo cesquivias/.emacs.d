@@ -168,6 +168,7 @@
 (setq-default buffer-file-coding-system 'utf-8-unix)
 (global-font-lock-mode t)
 (electric-pair-mode)
+(winner-mode t)
 
 ;; Use hippie-expand
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
