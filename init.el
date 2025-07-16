@@ -130,7 +130,7 @@
   :init
   (setq auto-insert-directory (concat emacs.d "auto-insert"))
   :config
-  (add-to-list 'auto-insert-alist (cons ("\\.s" . "ARM64 ASM") nil "    .text
+  (add-to-list 'auto-insert-alist (list '("\\.s" . "ARM64 ASM") nil "    .text
 
     .global " '(file-name-base (buffer-file-name)) "
 " '(file-name-base (buffer-file-name)) ":
