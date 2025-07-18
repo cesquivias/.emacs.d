@@ -58,7 +58,7 @@ Adds some extra width for scrollbars"
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(when on-window-system?
+(when (functionp 'set-scroll-bar-mode)
   (set-scroll-bar-mode 'right))
 
 ;; Adjust GUI window position
